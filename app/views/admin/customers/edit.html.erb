@@ -1,0 +1,17 @@
+<h1>会員情報編集ページ</h1>
+
+<h4>登録されている会員情報</h4>
+<div>
+  <p>姓：<%= @customer.last_name %></p>
+  <p>名：<%= @customer.first_name %></p>
+  <p>姓（カナ）：<%= @customer.last_name_kana %></p>
+  <p>名（カナ）：<%= @customer.first_name_kana %></p>
+  <p>郵便番号：<%= @customer.postcode %></p>
+  <p>住所：<%= @customer.address %></p>
+  <p>電話番号：<%= @customer.phone_number %></p>
+  <p>メールアドレス：<%= @customer.email %></p>
+  <p>パスワード：<%= @customer.password %></p> <!--個人情報的に？？-->
+</div>
+
+<h4>会員ステータスの情報</h4>
+
