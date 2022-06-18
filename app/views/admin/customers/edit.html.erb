@@ -1,17 +1,14 @@
-<h1>会員情報編集ページ</h1>
-
-<h4>登録されている会員情報</h4>
+<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
 <div>
-  <p>姓：<%= @customer.last_name %></p>
-  <p>名：<%= @customer.first_name %></p>
-  <p>姓（カナ）：<%= @customer.last_name_kana %></p>
-  <p>名（カナ）：<%= @customer.first_name_kana %></p>
+  <p>会員ID：<%= @customer.id %>></p>
+  <p>氏名：<%= @customer.last_name %>　<%= @customer.first_name %></p>
+  <p>フリガナ：<%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></p>
   <p>郵便番号：<%= @customer.postcode %></p>
   <p>住所：<%= @customer.address %></p>
   <p>電話番号：<%= @customer.phone_number %></p>
   <p>メールアドレス：<%= @customer.email %></p>
-  <p>パスワード：<%= @customer.password %></p> <!--個人情報的に？？-->
+  <p>会員ステータス</p>
 </div>
 
-<h4>会員ステータスの情報</h4>
+<%= link_to '変更を保存',  admin_custome_path(@customer) %>
 
