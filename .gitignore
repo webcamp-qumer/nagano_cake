@@ -39,4 +39,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-config/environment/development.rb
+config/environments/development.rb
