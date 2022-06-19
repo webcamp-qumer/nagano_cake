@@ -17,11 +17,15 @@ Rails.application.routes.draw do
     sessions: "admin/sessions" #管理者はログイン機能のみ
   }
   
-  namespace :admin do
-   root :to =>"homes#top"
-   resources :customers, only: [:index, :show, :edit, :update]
-   resources :items, except: [:destroy]
-   
+  
+  #顧客側のルート
+  namespace :public do
+    resources :customers
   end
+  
+   scope module: :public do
+    root to: 'homes#top'
+  end
+  #devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
