@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: { #passwordの変更、sign_up機能の削除
     sessions: "admin/sessions" #管理者はログイン機能のみ
   }
-  root :to =>"homes#top"
   namespace :admin do
+    
+   root :to =>"homes#top"
+
    resources :customers, only: [:index, :show, :edit, :update]
    resources :items, except: [:destroy]
    resources :genres, only: [:index, :create, :edit, :update]
