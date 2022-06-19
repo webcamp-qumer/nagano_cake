@@ -2,7 +2,8 @@
 
 <p>商品名　<%= @item.name %></p>
 <p>商品説明　<%= @item.message %></p>
-<p>ジャンル　<%= @item.genre_id.name %></p>
-<p>税込価格　(<%= @item.price_non_tax %>) 円</p>
+<p>ジャンル</p>
+<p>税込価格</br>
+   （税抜価格）（<%= @item.price_non_tax %>）円</p>
 
 <%= link_to '編集する', edit_admin_item_path(@item) %>
