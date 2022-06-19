@@ -17,9 +17,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions" #管理者はログイン機能のみ
   }
   namespace :admin do
-    
    root :to =>"homes#top"
-
    resources :customers, only: [:index, :show, :edit, :update]
    resources :items, except: [:destroy]
    resources :genres, only: [:index, :create, :edit, :update]
