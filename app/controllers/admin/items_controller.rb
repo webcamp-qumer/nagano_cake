@@ -1,5 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
+  #before_action :authenticate_admin!
+
 
  def new
   @item = Item.new
@@ -7,12 +9,13 @@ class Admin::ItemsController < ApplicationController
  
  def create
   @item = Item.new(item_params) #ストロングパラメータ
-  @item.admin_id = current_user.id #current_user=ログイン中のユーザーの情報を取得できる
+  #@item.admin_id = current_admin.id #current_user=ログイン中のユーザーの情報を取得できる
   if @item.save
-   redirect_to admin_item_path(@item)
+   redirect_to admin_items_path
   else
    render :new
   end 
+  
  end 
  
  def index
