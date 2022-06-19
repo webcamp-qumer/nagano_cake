@@ -1,12 +1,17 @@
 class Public::OrdersController < ApplicationController
   
-  def new
-  end
-  
   def confirm
   end
   
   def create
+    @item = Item.new(item_params)
+    @item.customer_id = current_user.id
+    if @item.save
+      redirect_to thanks
+    else
+      @items = Item.all
+      render :new
+    end
   end
   
   def show
@@ -15,9 +20,12 @@ class Public::OrdersController < ApplicationController
   def index
   end
   
-  def thanks
+  def update
   end
   
-  def update
+  private
+  
+  def customer_params
+    params.require(:customer).permit(:name, :postcode, :address, :postage , :total_price)
   end
 end
