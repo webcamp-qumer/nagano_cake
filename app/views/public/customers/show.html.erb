@@ -1,0 +1,32 @@
+<h1>マイページ</h1>
+
+<div>
+ 姓 
+<%= @customer.last_name %><br>
+
+名
+<%= @customer.first_name %><br>
+
+セイ
+<%= @customer.last_name_kana %><br>
+
+メイ
+<%= @customer.first_name_kana %><br>
+
+郵便番号
+<%= @customer.postcode %><br>
+
+住所
+<%= @customer.address %><br>
+
+電話番号
+<%= @customer.phone_number %><br>
+
+メールアドレス
+<%= @customer.email %>
+
+<% if @customer == current_customer %>
+ <%= link_to 'edit', edit_public_customer_path(current_customer.id) %>
+<% end %>
+
+</div>
