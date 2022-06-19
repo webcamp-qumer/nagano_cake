@@ -1,1 +1,21 @@
 <h2>商品一覧</h2>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>商品名</th>
+      <th>商品紹介</th>
+      <th>価格</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.message %></td>
+        <td><%= item.price %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
