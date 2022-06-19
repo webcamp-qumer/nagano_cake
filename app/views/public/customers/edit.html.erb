@@ -1,8 +1,31 @@
 <h1>編集</h1>
-<%= form_with model:@customer do |f| %>
+<%= form_with model:@customer, url: public_customer_path(@customer),method: :patch  do |f| %>
 
 <div>
-  <%= f.label 姓 %>
-  <%= f.text_field :last_name %>
+  姓 
+  <%= f.text_field :last_name %><br>
+  
+  名
+  <%= f.text_field :first_name %><br>
+  
+  セイ
+  <%= f.text_field :last_name_kana %><br>
+  
+  メイ
+  <%= f.text_field :first_name_kana %><br>
+  
+  郵便番号
+  <%= f.text_field :postcode %><br>
+  
+  住所
+  <%= f.text_field :address %><br>
+  
+  電話番号
+  <%= f.text_field :phone_number %><br>
+  
+  メールアドレス
+  <%= f.text_field :email %>
+  
+  <%= f.submit '保存' %>
 </div>
 <% end %>
