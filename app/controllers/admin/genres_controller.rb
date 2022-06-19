@@ -20,6 +20,7 @@ class Admin::GenresController < ApplicationController
    @genre.update
    redirect_to admin_genres_path
   end 
+  
   private
   
   def genres_params

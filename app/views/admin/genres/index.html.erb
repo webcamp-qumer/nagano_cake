@@ -3,7 +3,7 @@
 <!--エラー-->
  <p>
   ジャンル名
-  <%= form_with model:@genre, url:admin_genres do |f| %>
+  <%= form_with model:@genre, url: admin_genres do |f| %>
   <%= f.text_field :name %>
   <%= f.submit '新規登録' %>
   <% end %>
