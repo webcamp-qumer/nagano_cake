@@ -1,0 +1,13 @@
+<h1>配送一覧</h1>
+<%= render 'index', addresses: @addresses %>
+
+<h3>新規登録</h3>
+  <%= form_with model: @address,local:true do |f| %>
+  宛名
+  <%= f.text_field :name %><br>
+  郵便番号
+  <%= f.text_field :postcode %><br>
+  配送先
+  <%= f.text_area :address %><br>
+<%= f.submit '新規登録' %>
+<% end %>
