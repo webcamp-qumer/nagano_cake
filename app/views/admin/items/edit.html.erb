@@ -1,10 +1,9 @@
 <h1>商品編集</h1>
 
 <div>
-<%= form_with model:@item, local:true do |f| %> 
-<!--エラー！！-->
+<%= form_with model:@item, url: admin_item_path(@item), method: :patch do |f| %> 
 <h3>商品画像</h3>
-
+<%= f.file_field :image, accept: "image/*" %>
 <h3>商品名</h3>
 <%= f.text_field :name %>
 <h3>商品説明</h3>
@@ -14,8 +13,9 @@
 <h3>商品価格（税抜）</h3>
 <%= f.text_field :price_non_tax %>
 <h3>販売ステータス</h3>
-
-<%= f.submit '変更を保存' %>
-
+<label><%= f.radio_button :is_active, :true %>販売中</label>
+<label><%= f.radio_button :is_active, :false %>販売停止中</label>
+<!--デフォルトはtureの販売中-->
+<p><%= f.submit '変更を保存' %></p>
 <% end %>
 </div>
