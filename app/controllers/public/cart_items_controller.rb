@@ -1,14 +1,14 @@
 class Public::CartItemsController < ApplicationController
   def index
     @items = Item.all
-    @item = Item.new
+    @item = public_customer
   end
 
   def create
     @item = Item.new(item_params)
     @item.customer_id = current_user.id
     if @item.save
-      redirect_to new_order
+      redirect_to new_order_path
     else
       @items = Item.all
       render :index

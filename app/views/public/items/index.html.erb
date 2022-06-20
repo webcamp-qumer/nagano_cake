@@ -1,1 +1,7 @@
 <h2>商品一覧</h2>
+<h4>全<%= @items.count %>件</h4>
+<% @items.each do |item| %>
+  <%= image_tag item.get_profile_image, size:'50x100' %>
+    <%= link_to item.name, orders_path %>
+      ￥<%= item.price %>
+<% end %>
