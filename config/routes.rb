@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 #顧客側のルート
   namespace :public do
     resources :customers
+     # 退会確認画面
+     get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+     # 論理削除用のルーティング
+     patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
   end
    scope module: :public do
     root to: 'homes#top'
