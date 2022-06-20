@@ -39,7 +39,7 @@ class Admin::ItemsController < ApplicationController
 private
 
  def item_params
-  params.require(:item).permit(:image,:name, :message, :price_non_tax) #ジャンルと販売ステータスの追加
+  params.require(:item).permit(:image,:name, :message, :price_non_tax, :is_active) #ジャンルと販売ステータスの追加
  end 
  
 end
