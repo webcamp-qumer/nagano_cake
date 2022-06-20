@@ -17,6 +17,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    new_history = @order.order_histories.new
+    new_history.customer_id = current_user.id
+    new_history.save
   end
 
   def index

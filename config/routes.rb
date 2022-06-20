@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   end
    scope module: :public do
     root to: 'homes#top'
+    #get 'orders/:id' => 'order#show', as: 'order'
     resources :items, only: [:index,:show]
     resources :orders, only: [:conform,:index,:new,:show,:thanks]
-    resources :cart_items, only: [:index]
+    resources :cart_items, only: [:index,:destroy]
     end
 
 
