@@ -1,10 +1,9 @@
 <h1>商品編集</h1>
 
 <div>
-<%= form_with model:@item, local:true do |f| %> 
-<!--エラー！！-->
+<%= form_with model:@item, url: admin_item_path(@item), method: :patch do |f| %> 
 <h3>商品画像</h3>
-
+<%= f.file_field :image, accept: "image/*" %>
 <h3>商品名</h3>
 <%= f.text_field :name %>
 <h3>商品説明</h3>

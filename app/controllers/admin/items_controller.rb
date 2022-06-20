@@ -32,14 +32,14 @@ class Admin::ItemsController < ApplicationController
  
  def update
   @item = Item.find(params[:id])
-  @item.update(item_params)
+  @item.update(item_params) #ストロングパラメータ！！
   redirect_to admin_item_path(@item)
  end 
 
 private
 
  def item_params
-  params.require(:item).permit(:name, :message, :price_non_tax) #ジャンルと販売ステータスの追加
+  params.require(:item).permit(:image,:name, :message, :price_non_tax) #ジャンルと販売ステータスの追加
  end 
  
 end

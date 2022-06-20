@@ -1,5 +1,13 @@
 <h1>商品詳細</h1>
 
+<p>商品画像</p> <!--image_tag=画像を表示するための記述-->
+<p>
+  <% if @item.image.attached? %>
+　  <%= image_tag @item.image, size: "200x200" %>
+　<% else %>
+　  <%= image_tag 'no-image', size: "200x200" %>
+　<% end %>
+</p>　
 <p>商品名　<%= @item.name %></p>
 <p>商品説明　<%= @item.message %></p>
 <p>ジャンル</p>
