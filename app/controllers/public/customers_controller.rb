@@ -14,9 +14,19 @@ class Public::CustomersController < ApplicationController
   end
   
   def update
-   @customer = Customer.find(params[:id])
-   @customer = @customer.update(public_customer_params)
-   redirect_to public_customer_path(current_customer.id)
+
+    @customer = Customer.find(params[:id])
+    @customer = @customer.update(public_customer_params)
+    redirect_to public_customer_path(current_customer.id)
+    
+
+  end
+  
+  def withdrawal
+    @customer = Customer.find(params[:id])
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
   
   def unsubscribe

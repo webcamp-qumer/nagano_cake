@@ -26,7 +26,8 @@
 <%= @customer.email %>
 
 <% if @customer == current_customer %>
- <%= link_to 'edit', edit_public_customer_path(current_customer.id) %>
+ <%= link_to '編集', edit_public_customer_path(current_customer.id) %>
+ <%= link_to '配送先一覧', addresses_path(current_customer.id) %>
 <% end %>
 
 </div>
