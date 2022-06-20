@@ -102,6 +102,18 @@ ActiveRecord::Schema.define(version: 2022_06_20_080552) do
     t.boolean "is_active", default: true, null: false
   end
 
+  create_table "order_histories", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.integer "total_price", null: false
+    t.integer "price_non_tax", null: false
+    t.integer "amount", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "order_shows", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
