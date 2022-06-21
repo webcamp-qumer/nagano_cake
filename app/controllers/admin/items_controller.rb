@@ -1,15 +1,15 @@
 class Admin::ItemsController < ApplicationController
 
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
 
  def new
   @item = Item.new
+  @genres = Genre.all
  end 
  
  def create
   @item = Item.new(item_params) #ストロングパラメータ
-  #@item.admin_id = current_admin.id #current_user=ログイン中のユーザーの情報を取得できる
   if @item.save
    redirect_to admin_item_path(@item)
   else
@@ -28,6 +28,7 @@ class Admin::ItemsController < ApplicationController
  
  def edit
   @item = Item.find(params[:id])
+  @genres = Genre.all
  end 
  
  def update
@@ -39,7 +40,7 @@ class Admin::ItemsController < ApplicationController
 private
 
  def item_params
-  params.require(:item).permit(:image,:name, :message, :price_non_tax, :is_active) #ジャンルと販売ステータスの追加
+  params.require(:item).permit(:image,:name, :message, :price_non_tax, :is_active, :genre_id) 
  end 
  
 end
