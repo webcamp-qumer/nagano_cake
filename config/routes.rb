@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
     resources :orders, only: [:conform,:index,:new,:show,:thanks]
-    resources :cart_items, only: [:index,:destroy]
+    resources :cart_items, only: [:index,:destroy, :destroy_all]
     end
 
 

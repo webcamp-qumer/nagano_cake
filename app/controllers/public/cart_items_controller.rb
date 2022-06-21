@@ -1,7 +1,8 @@
 class Public::CartItemsController < ApplicationController
+  
   def index
     @items = Item.all
-    @item = public_customer
+    @item = current_customer
   end
 
   def create
@@ -24,8 +25,8 @@ class Public::CartItemsController < ApplicationController
     @item.destroy
   end
 
-  def destroy.all
-    @item.destroy.all
+  def destroy_all
+    @item.destroy_all
   end
 
   private
