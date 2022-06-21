@@ -33,6 +33,7 @@
     <td><%= order_history.price %></td>
     <td><%= order_history.amount %></td>
     <td><%= order_history.price*order_history.amount %></td>
+        <% @total = @total + order_history.price*order_history.amount
     <% end %>
 
     <td>
@@ -49,7 +50,7 @@
 <div>
   <p>
     <string>商品合計</string>
-    <%= total_price(@order_histories).to_s(:delimited) %>円
+    <%= @total %>円
   </p>
   <p>
   　<string>送料</string>
