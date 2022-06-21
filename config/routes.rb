@@ -18,20 +18,19 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
     resources :orders, only: [:conform,:index,:new,:show,:thanks]
-    resources :cart_items, only: [:index,:destroy, :destroy_all]
+    resources :cart_items, only: [:index,:destroy]
     end
-
+  end
 
   #作ったコントローラーの場所を記述
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: { #passwordの変更、sign_up機能の削除
     sessions: "admin/sessions" #管理者はログイン機能のみ
   }
-  
+
   namespace :admin do
    root :to =>"homes#top"
    resources :customers, only: [:index, :show, :edit, :update]
    resources :items, except: [:destroy]
    resources :genres, only: [:index, :create, :edit, :update]
    resources :orders, only: [:show, :update]
-    end
   end

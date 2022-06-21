@@ -1,6 +1,6 @@
 <h2>ショッピングカート</h2>
 <% if @item == current_customer %>
- <%= link_to "カートを空にする" , cart_item_path(cart_item), method: :delete_all %>
+ <%= button_to "カートを空にする" , current_customer.Items.detroy_all, method: :delete_all %>
 <% end %>
 <table class='table table-hover table-inverse'>
   <thead>
