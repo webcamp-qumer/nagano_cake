@@ -33,5 +33,6 @@ Rails.application.routes.draw do
    resources :items, except: [:destroy]
    resources :genres, only: [:index, :create, :edit, :update]
    resources :orders, only: [:show, :update]
-    end
+   resources :order_histories, only: [:update]
+   end
   end

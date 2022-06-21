@@ -22,7 +22,7 @@
         <td><%= f.hidden_field :title, :value => "1" %>
             <%= f.select :amount, *[1..10] %> %>
             </td>
-        <td><%= item.price*item.amount %></td>
+        <td><%= item.priceitem.amount %></td>
         <td><% if @item == current_customer %>
               <%= link_to "削除する" , cart_item_path(cart_item.id), method: :delete %>
             <% end %>
