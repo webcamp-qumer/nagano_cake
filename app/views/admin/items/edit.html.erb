@@ -9,6 +9,7 @@
 <h3>商品説明</h3>
 <%= f.text_area :message %>
 <h3>ジャンル</h3>
+<%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
 
 <h3>商品価格（税抜）</h3>
 <%= f.text_field :price_non_tax %>
