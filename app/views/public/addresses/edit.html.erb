@@ -1,2 +1,4 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<h1>編集</h1>
+<% form_with model: @address do |f| %>
+<%= f.text_field :name %>
+<% end %>
