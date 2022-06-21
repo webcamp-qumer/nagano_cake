@@ -1,5 +1,4 @@
 class Genre < ApplicationRecord
-  
-  #空だと保存することができない
-  validates :name, presence: true
+
+  has_many :items, dependent: :destroy
 end
