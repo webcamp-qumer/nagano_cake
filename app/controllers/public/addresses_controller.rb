@@ -7,13 +7,12 @@ class Public::AddressesController < ApplicationController
   
   def create
     @address = Address.new(address_params)
-    #@address.customer_id = current_customer.id #ログイン中の会員しか登録できない
+    @address.customer_id = current_customer.id #ログイン中の会員しか登録できない
     if @address.save
       redirect_to addresses_path(@address)
     else
       @addresses = Address.all
-      #render :index
-      redirect_to root_path
+      render :index
     end
   end
   
