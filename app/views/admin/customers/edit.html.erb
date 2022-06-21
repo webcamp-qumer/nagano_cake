@@ -10,8 +10,8 @@
   <p>電話番号：<%= f.text_field :phone_number %></p>
   <p>メールアドレス：<%= f.text_field :email %></p>
   <p>会員ステータス
-  <label><%= f.radio_button :is_active, :true %>退会</label>
-  <label><%= f.radio_button :is_active, :false %>有効</label>
+  <label><%= f.radio_button :is_deleted, :true %>退会</label>
+  <label><%= f.radio_button :is_deleted, :false %>有効</label>
   </p>
 </div>
 <% end %>
