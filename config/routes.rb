@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
    scope module: :public do
     root to: 'homes#top'
+    get 'about' => 'homes#about'
     #get 'orders/:id' => 'order#show', as: 'order'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
