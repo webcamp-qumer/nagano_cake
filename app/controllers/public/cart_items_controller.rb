@@ -1,15 +1,17 @@
 class Public::CartItemsController < ApplicationController
-  
+
   def index
     @items = Item.all
-    @item = current_customer
+    @cart_items = current_customer.cart_items.all
+    # カートに入ってる商品の合計金額
+    @total = @cart_items.inject(0) { |sum, item| sum + item.total_price }
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.customer_id = current_user.id
+    @item = CartItem.new(cart_item_params)
+    #@item.customer_id = current_user.id
     if @item.save
-      redirect_to new_order_path
+      redirect_to cart_items_path
     else
       @items = Item.all
       render :index
@@ -26,12 +28,18 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    @item.destroy_all
+    Item.destroy_all
+    redirect_to cart_item_path
   end
 
   private
 
-  def customer_params
+
+  def cart_item_params
+      params.require(:cart_item).permit(:item_id, :customer_id, :quantity)
+  end
+
+  def item_params
     params.require(:item).permit(:name, :amount)
   end
 
