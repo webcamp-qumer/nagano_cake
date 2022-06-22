@@ -14,11 +14,11 @@
       <th>ジャンル</th>
     </tr>
   </thead>
-  <tobody>
+  <tbody>
     <% @genres.each do |genre| %>
     <tr>
       <th><%= genre.name %></th>
       <th><%= link_to '編集する', edit_admin_genre_path(genre) %></th>
     </tr>
     <% end %>
-  </tobody>
+  </tbody>
