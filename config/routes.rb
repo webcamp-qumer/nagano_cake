@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index,:show]
     resources :orders, only: [:conform,:index,:new,:show,:thanks]
     resources :cart_items, only: [:index,:destroy]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
     end
-  end
 
   #作ったコントローラーの場所を記述
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: { #passwordの変更、sign_up機能の削除
@@ -34,3 +34,5 @@ Rails.application.routes.draw do
    resources :genres, only: [:index, :create, :edit, :update]
    resources :orders, only: [:show, :update]
   end
+
+end

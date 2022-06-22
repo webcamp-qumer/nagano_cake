@@ -1,8 +1,10 @@
 class Public::CartItemsController < ApplicationController
-  
+
   def index
     @items = Item.all
-    @item = current_customer
+    @cart_items = current_customer.cart_items.all
+    # カートに入ってる商品の合計金額
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
   end
 
   def create
@@ -32,7 +34,12 @@ class Public::CartItemsController < ApplicationController
 
   private
 
-  def customer_params
+
+  def cart_item_params
+      params.require(:cart_item).permit(:item_id, :amount)
+  end
+
+  def item_params
     params.require(:item).permit(:name, :amount)
   end
 
