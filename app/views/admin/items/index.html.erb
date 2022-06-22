@@ -1,5 +1,5 @@
-<h1>商品一覧</h1>
-<tadle>
+<h2>商品一覧</h2>
+<table class='table table-hover table-inverse'>
 　<thead>
     <tr>
       <th>商品ID</th>
@@ -14,11 +14,23 @@
     <% @items.each do |item| %>
     <tr>
         <td><%= item.id %></td>
-        <td><%= link_to admin_item_path(item) do %>
+        <td><%= link_to admin_item_path(item),class: "link" do %>
             <%= item.name %>
             <% end %>
             </td>
-        <td><%= item.price_non_tax %></td>
+        <td><%= item.price_non_tax.to_s(:delimited) %></td>
+        <td><%= item.genre.name %></td>
+        <td >
+         <% if item.is_active == true %>
+         <span style="font-weight: bold; color:#28a44a;">
+          販売中
+         </span>
+         <% else %>
+         <span style="font-weight: bold; color:#dddddd;">
+          販売停止中
+         </span>
+         <% end %>  
+        </td>
 
     </tr>
     <% end %>
