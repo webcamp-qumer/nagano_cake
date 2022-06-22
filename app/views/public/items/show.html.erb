@@ -1,11 +1,12 @@
 <h2>商品詳細</h2>
 <%= image_tag @item.image, size:'100x200' %>
 <h3><%= @item.name %></h3>
-    <%= @item.text %>
-  ￥<%= @item.price.to_s(:delimited), '(税込)' %>
+    <%= @item.message %>
+  ￥<%= @item.price.to_s(:delimited)  %>(税込)
 
-<%= form_with model: Item.new do |f| %>
-  <%= f.hidden_field :title, :value => "個数を選択してください" %>
-  <%= f.select :amount, *[1..10] %>
+<%= form_with model: CartItem.new do |f| %>
+  <%= f.hidden_field :item_id, :value => @item.id %>
+  <%= f.hidden_field :customer_id, :value => current_customer.id %>
+  <%= f.select :quantity, *[1..10] %>
   <%= f.submit 'カートに入れる', class: 'btn btn-success' %>
 <% end %>

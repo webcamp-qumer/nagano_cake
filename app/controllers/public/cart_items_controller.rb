@@ -4,14 +4,14 @@ class Public::CartItemsController < ApplicationController
     @items = Item.all
     @cart_items = current_customer.cart_items.all
     # カートに入ってる商品の合計金額
-    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    @total = @cart_items.inject(0) { |sum, item| sum + item.total_price }
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.customer_id = current_user.id
+    @item = CartItem.new(cart_item_params)
+    #@item.customer_id = current_user.id
     if @item.save
-      redirect_to new_order_path
+      redirect_to cart_items_path
     else
       @items = Item.all
       render :index
@@ -36,7 +36,7 @@ class Public::CartItemsController < ApplicationController
 
 
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount)
+      params.require(:cart_item).permit(:item_id, :customer_id, :quantity)
   end
 
   def item_params
