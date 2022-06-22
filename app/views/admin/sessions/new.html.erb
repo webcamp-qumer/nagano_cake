@@ -1,9 +1,19 @@
+<div class="title">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+          <h3><strong>管理者</strong>ログイン</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="form-wrapper">
 <div class='container'>
   <div class='row'>
     <div class="mx-auto col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
-    <form class="text-center card">
-    <h3><strong>管理者</strong>ログイン</h3>
+      
     <%= form_with model: @admin, url: admin_session_path do |f| %>
   
     <div class="field">
@@ -24,7 +34,6 @@
     <% end %>
 
     <%= render "admin/shared/links" %><!--フォルダ名の変更に伴いadmins=>admin に変更-->
-    </form>
     </div>
   </div>
 </div>

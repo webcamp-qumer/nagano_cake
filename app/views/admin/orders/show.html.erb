@@ -1,4 +1,7 @@
+<div class="title">
 <h1>注文履歴詳細</h1>
+</div>
+
 <p>購入者<%= @order.customer.name %></p>
 <p>注文日<%= @order.created_at %></p>
 <p>配送先
@@ -31,9 +34,9 @@
     <% @order_histories.each do |order_history| %>
     <td><%= order_history.item.name %></td>
     <td><%= order_history.price %></td>
-    <td><%= order_history.amount %></td>
-    <td><%= order_history.price*order_history.amount %></td>
-        <% @total = @total + order_history.price*order_history.amount %>
+    <td><%= order_history.quantity %></td>
+    <td><%= order_history.price*order_history.quantity %></td>
+        <% @total = @total + order_history.price*order_history.quantity %>
         <!--左の@totalは変数-->
     <% end %>
 
