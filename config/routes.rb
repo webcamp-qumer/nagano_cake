@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     # 論理削除用のルーティング
     patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-  end
-   scope module: :public do
+    end
+    scope module: :public do
     root to: 'homes#top'
     #get 'orders/:id' => 'order#show', as: 'order'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
@@ -34,5 +34,6 @@ Rails.application.routes.draw do
    resources :genres, only: [:index, :create, :edit, :update]
    resources :orders, only: [:show, :update]
   end
-
+   resources :order_histories, only: [:update]
 end
+   

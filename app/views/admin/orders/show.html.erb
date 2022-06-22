@@ -8,9 +8,15 @@
 <p>支払い方法
 </p>
 <p>注文ステータス
+   <% form_with model:@order, url:admin_order_path do |f| %>
+   <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
+   <!--select=プルダウンメニューの表示-->
+   <%= f.submit '更新'%>
+   <% end %>
 </p>
 
 <div>
+  <table>
   <thead>
     <tr>
       <th>商品名</th>
@@ -20,12 +26,39 @@
       <th>製作ステータス</th>
     </tr>
   </thead>
-  <tobody>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+  
+  <tobody> 
+    <% @order_histories.each do |order_history| %>
+    <td><%= order_history.item.name %></td>
+    <td><%= order_history.price %></td>
+    <td><%= order_history.amount %></td>
+    <td><%= order_history.price*order_history.amount %></td>
+        <% @total = @total + order_history.price*order_history.amount %>
+        <!--左の@totalは変数-->
+    <% end %>
 
+    <td>
+        <% form_with model:@order_history, url:admin_order_history_path(order_history) do |f| %>
+        <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
+        <!--select=プルダウンメニューの表示-->
+        <%= f.submit '更新'%>
+       <% end %>
+    </td>
   </tobody>
+  </table>
+</div>
+
+<div>
+  <p>
+    <string>商品合計</string>
+    <%= @total %>円
+  </p>
+  <p>
+  　<string>送料</string>
+  　<%= @order.postage %>円
+  </p>
+  <p>
+  <string>請求合計金額</string>
+    <%= @order.total_price %>円
+  </p>
 </div>
