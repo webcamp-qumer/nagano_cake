@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image #画像を使うことを宣言
 
   belongs_to :genre
+  has_many   :cart_items
   
   #空だと保存することができない
   validates :name, presence: true

@@ -6,9 +6,7 @@ class CreateOrderHistories < ActiveRecord::Migration[6.1]
       t.string   :address,        null: false
       t.integer  :total_price,    null: false
       t.integer  :price_non_tax,  null: false
-      t.integer  :amount,         null: false
       t.integer  :status,         null: false
-      #t.datetime :created_at,     null: false
 
       t.timestamps
     end
