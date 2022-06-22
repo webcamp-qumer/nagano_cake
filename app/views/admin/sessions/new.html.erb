@@ -1,7 +1,7 @@
 <div class="title">
   <div class="container">
     <div class="row">
-      <div class="col-2">
+      <div class="col-4">
           <h3><strong>管理者</strong>ログイン</h3>
       </div>
     </div>
@@ -12,18 +12,18 @@
 <div class="form-wrapper">
 <div class='container'>
   <div class='row'>
-    <div class="mx-auto col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div class="mx-auto">
       
     <%= form_with model: @admin, url: admin_session_path do |f| %>
   
     <div class="field">
       <%= f.label :メールアドレス %> 
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20" %>
     </div>
 
     <div class="field">
       <%= f.label :パスワード %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", size: "40x20" %>
     </div>
 
   <!--パスワードの変更不要のため削除-->

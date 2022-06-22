@@ -10,7 +10,7 @@
 
 <div class='container'>
  <div class='row'>
-  <div class='col-8'>
+  <div class='col-10'>
    </table>
   <%= form_with model:@item, url: admin_items_path  do |f| %> 
     <tr>
@@ -22,13 +22,6 @@
      </th>
     </tr>
     
-    <tr>
-     <th>
-     　<lavel>
-       <span class='main'>商品名</span>
-       <td><%= f.text_field :name %></td>
-       </lavel>
-     </th>
     </tr>
     
     <tr>
@@ -39,32 +32,47 @@
       </lavel>
      </th>
     </tr>
-    
 
- 　<lavel>
-  <span class='main'>商品名</span>
-  <%= f.text_field :name %>
-  </lavel>
-  <lavel>
-  <span class='main'>商品説明</span>
-  <%= f.text_area :message %>
-  </lavel> 
-  <lavel>
-  <span class='main'>商品価格（税抜）</span>
-  <%= f.text_field :price_non_tax %>
-  </label>
-  <lavel>
-  <span class='main'>ジャンル</span>
-  <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
-  </lavel>
-  <lavel>
-  <span class='main'>販売ステータス</span>
-  <label><%= f.radio_button :is_active, :true %>販売中</label>
-  <label><%= f.radio_button :is_active, :false %>販売停止中</label>
-  </lavel>
-  <p><%= f.submit '新規登録' %></p>
+     <tr>
+     <th>
+      <lavel>
+      <span class='main'>商品説明</span>
+      <%= f.text_area :message %>
+      </lavel>
+     </th>
+    </tr>
 
-<% end %>
+     <tr>
+     <th>
+      <lavel>
+      <span class='main'>商品価格（税抜）</span>
+      <%= f.text_field :price_non_tax %>
+      </lavel>
+     </th>
+    </tr>
+
+     <tr>
+     <th>
+      <lavel>
+      <span class='main'>ジャンル</span>
+      <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
+      </lavel>
+     </th>
+     </tr>
+
+     <tr>
+     <th>
+      <lavel>
+      <span class='main'>販売ステータス</span>
+      <label><%= f.radio_button :is_active, :true %>販売中</label>
+      <label><%= f.radio_button :is_active, :false %>販売停止中</label>
+      </lavel>
+     </th>
+    </tr>
+
+  <p><%= f.submit '新規登録',  class: 'btn btn-sm btn-primary' %></p>
+
+   <% end %>
    </table>
   </div>
  </div>
