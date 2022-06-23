@@ -1,0 +1,21 @@
+<h2>注文情報入力</h2>
+<h3>支払方法</h3>
+<%= f.radio_button :pay_method, Order.pay_methods.key(0) %>
+<%= f.label :pay_method, Order.pay_methods_i18n[:credit_card] %>
+
+<%= f.radio_button :pay_method, Order.pay_methods.key(1) %>
+<%= f.label :pay_method, Order.pay_methods_i18n[:transfer] %>
+
+<h3>お届け先</h3>
+<li>ご自身の住所</li>
+<!--currentcostomerの現住所-->
+<li>登録済住所から選択</li>
+<!--プルダウン-->
+<li>新しいお届け先</li>
+郵便番号（ハイフンなし）
+<!--記入欄-->
+住所
+<!--記入欄-->
+宛名
+<!--記入欄-->
+<%#= f.submit '確認画面へ進む' %>
