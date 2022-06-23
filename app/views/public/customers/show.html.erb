@@ -1,33 +1,43 @@
 <h1>マイページ</h1>
 
-<div>
- 姓 
-<%= @customer.last_name %><br>
+ <div class="customer_show">
+  <table>
+    <tbody>
+     <th>
+      <tb class="customer_title border">氏名</tb>
+      <tb class="customer_information border">
+       <%= @customer.last_name %>　<%= @customer.first_name %><br>
+      </tb>
+     </th>
+     
+     <th>
+      <tb class="customer_title border">カナ</tb>
+      <tb class="customer_information border">
+       <%= @customer.last_name_kana %>　<%= @customer.first_name_kana %><br>
+      </tb>
+     </th>
+      
+      <tb class="customer_title border">郵便番号</tb>
+      <tb class="customer_information border">
+       <%= @customer.postcode %><br>
+      </tb>
+      <tb class="customer_title border">住所</tb>
+      <tb class="customer_information border">
+       <%= @customer.address %><br>
+      </tb>
+      <tb class="customer_title border">電話番号</tb>
+      <tb class="customer_information border"><%= @customer.phone_number %><br></tb>
+      <tb class="customer_title border">メールアドレス</tb>
+      <tb class="customer_information border"><%= @customer.email %></tb>
+    </tbody>
+   </table>
+ </div>
+   
 
-名
-<%= @customer.first_name %><br>
 
-セイ
-<%= @customer.last_name_kana %><br>
-
-メイ
-<%= @customer.first_name_kana %><br>
-
-郵便番号
-<%= @customer.postcode %><br>
-
-住所
-<%= @customer.address %><br>
-
-電話番号
-<%= @customer.phone_number %><br>
-
-メールアドレス
-<%= @customer.email %>
 
 <% if @customer == current_customer %>
  <%= link_to '編集', edit_public_customer_path(current_customer.id) %>
  <%= link_to '配送先一覧', addresses_path(current_customer.id) %>
 <% end %>
 
-</div>
