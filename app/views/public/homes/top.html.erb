@@ -1,6 +1,32 @@
-<h1>トップページ</h1>
-  <% @items.each.with_index(1) do |item| %>
-    <%= image_tag item.image, size: "100x100" %>
-    <%= link_to item.name, item_path(item.id) %>
-    <%= item.message %>
-  <% end %>
+<div>
+  <p>ようこそ、ながのCAKEへ！</p>
+  <p>このサイトは、ケーキの販売のECサイトになります。</p>
+  <p>このサイトは、ケーキの販売の閲覧はできますが、</p>
+  <p>購入には会員登録が必要になります</p>
+</div>
+
+<table>
+  <thead>
+    <h2>新着商品</h2>
+    <th></th>
+    <th></th>
+    <yh></yh>
+  </thead>
+    <% @items.each.with_index(1) do |items| %>
+    <tbody>
+      <tb>
+      <% if items.image.attached? %>
+        <%= image_tag items.image, size: "100x100" %>
+      <% else %>
+        <%= image_tag 'no-image', size: "100x100" %>
+      <% end %>
+        <%= link_to items.name, orders_path %>
+        <%= items.message %>
+      </tb>
+    <% end %>
+    </tbody>
+</table>
+<%= link_to 'すべての商品を見る', items_path %>
+  
+<h4 class="top_titel">新規登録</h4>
+  
