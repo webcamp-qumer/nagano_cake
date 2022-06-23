@@ -1,3 +1,7 @@
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+
 <% if customer_signed_in? %>
   <li><%= link_to 'マイページ', public_customer_path(current_customer.id) %></li>
   <li><%= link_to '商品一覧', items_path %></li>
@@ -15,3 +19,7 @@
   <li><%= link_to '新規登録', new_customer_registration_path %></li>
   <li><%= link_to 'ログイン', new_customer_session_path %></li>
 <% end %>
+
+    </div>
+  </nav>
+</header>
