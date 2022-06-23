@@ -18,8 +18,8 @@
       <%= form_with model:@genre, url: admin_genre_path(@genre) do |f| %>
       <%= f.text_field :name %>
       </div>
-      <div class='col-2'>
-      <%= f.submit '変更を保存' %>
+      <div class='col-3'>
+      <%= f.submit '変更を保存', class: 'btn btn-success font-weight-bold' %>
       <% end %>
       </div>
      </div>

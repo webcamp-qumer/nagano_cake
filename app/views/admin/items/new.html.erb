@@ -10,70 +10,58 @@
 
 <div class='container'>
  <div class='row'>
-  <div class='col-10'>
-   </table>
-  <%= form_with model:@item, url: admin_items_path  do |f| %> 
-    <tr>
-     <th>
-        <lavel>
-        <span class='main'>商品画像</span>
-　      <td><%= f.file_field :image, accept: "image/*" %></td>
-      　</lavel>
-     </th>
-    </tr>
-    
-    </tr>
+  <div class='col-6 mx-auto'>
+     <%= form_with model:@item, url: admin_items_path  do |f| %> 
+   <table>
     
     <tr>
      <th>
-      <lavel>
-      <span class='main'>商品名</span>
-      <%= f.text_field :name %>
-      </lavel>
+        <span>商品画像</span>
      </th>
+     <td><%= f.file_field :image, accept: "image/*" %></td>
+    </tr>
+
+    <tr>
+     <th>
+      <span>商品名</span>
+     </th>
+     <td><%= f.text_field :name, size: "30x10" %></td>
     </tr>
 
      <tr>
      <th>
-      <lavel>
-      <span class='main'>商品説明</span>
-      <%= f.text_area :message %>
-      </lavel>
+      <span>商品説明</span>
      </th>
+     <td><%= f.text_area :message, size: "30x10" %></td>
+    </tr>
+
+    <tr>
+     <th>
+      <span>商品価格（税抜）</span>
+     </th>
+     <td><%= f.text_field :price_non_tax, size: "30x10" %></td>
     </tr>
 
      <tr>
      <th>
-      <lavel>
-      <span class='main'>商品価格（税抜）</span>
-      <%= f.text_field :price_non_tax %>
-      </lavel>
+      <span>ジャンル</span>
      </th>
-    </tr>
-
-     <tr>
-     <th>
-      <lavel>
-      <span class='main'>ジャンル</span>
-      <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
-      </lavel>
-     </th>
+      <td><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></td>
      </tr>
 
      <tr>
      <th>
-      <lavel>
-      <span class='main'>販売ステータス</span>
-      <label><%= f.radio_button :is_active, :true %>販売中</label>
-      <label><%= f.radio_button :is_active, :false %>販売停止中</label>
-      </lavel>
+      <span>販売ステータス</span>
      </th>
+     <td><%= f.radio_button :is_active, :true %>販売中
+         <%= f.radio_button :is_active, :false %>販売停止中
+     </td>
     </tr>
 
-  <p><%= f.submit '新規登録',  class: 'btn btn-sm btn-primary' %></p>
 
+   </table>  
+   <p><%= f.submit '新規登録', class: 'btn btn-success font-weight-bold' %></p>
    <% end %>
-   </table>
   </div>
  </div>
 </div>
