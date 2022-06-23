@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sign_up{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.teble{
+    background-color: #FFFaF5;
+    padding: 20px 50px;
+}
+
+.field{
+  display: flex;
+  padding: 0 20px;
+}
+
+.m__ttl_head{
+    margin: 40px 0;
+    font-weight: 700;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+ input.new_button{
+  width: 200px;
+  background-color: #a6ce39;
+}
+
+.email_label{
+  margin-right: 100px;
+}
+
+.password_label{
+  margin-right: 130px;
+}
+
+.log_in_button{
+  margin-left: 230px;
+}

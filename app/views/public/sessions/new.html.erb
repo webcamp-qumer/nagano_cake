@@ -1,21 +1,23 @@
-<main class="main_marge">
-    <h4 class="top_titel">ログイン</h4>
+    <h4 class="m__ttl_head">ログイン</h4>
+<main class="sign_up">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
      <h6>会員の方はこちらからログイン</h6>
+     <div class="teble">
       <div class="field">
-        <div class="label"><%= f.label :メールアドレス %></div>
+        <div class="email_label"><%= f.label :メールアドレス %></div>
         <div class="text"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
       </div>
     
       <div class="field">
-        <diV class="label"><%= f.label :パスワード %></diV>
+        <diV class="password_label"><%= f.label :パスワード %></diV>
         <div class="text"><%= f.password_field :password, autocomplete: "current-password" %></div>
       </div>
     
     
-      <div class="actions">
+      <div class="log_in_button">
         <%= f.submit "ログイン", {class: 'new_button'} %>
       </div>
+     </div>
     <% end %>
     <h6>会員登録がお済みでない方</h6>
     <diV class="field">
