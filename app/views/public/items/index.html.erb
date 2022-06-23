@@ -1,7 +1,12 @@
 <h2>商品一覧</h2>
 <h4>全<%= @items.count %>件</h4>
 <% @items.each do |item| %>
-  <%= image_tag item.image, size:'50x100' %>
-    <%= link_to item.name, item_path(item.id) %>
+<% if item.image.attached? %>
+        <%= image_tag item.image, size: "100x100" %>
+      <% else %>
+        <%= image_tag 'no-image', size: "100x100" %>
+      <% end %>
+  <%#= image_tag item.image, size:'50x100' %>
+    <%#= link_to item.name, item_path(item.id) %>
       <p>￥<%= item.price.to_s(:delimited) %></p>
 <% end %>
