@@ -1,26 +1,52 @@
-<h1>会員一覧</h1>
+<div class="title">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+          <h3>会員一覧</h3>
+      </div>
+    </div>
+  </div>
+</div>
 
-<thead>
-    <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tobody>
-    <% @customers.each do |customer| %>
-    <tr>
-        <td><%= customer.id %></td>
-        <td>
-          <%= link_to admin_customer_path(customer) do %>
-          <%= customer.last_name %><%= customer.first_name %>
-          <% end %>
-        </td>
-        <td><%= customer.email %></td>
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-11'>
+      <table class='table table-hover table-inverse'>
+        <thead class='topic'>
+    　　<tr>
+      　　<th>会員ID</th>
+      　　<th>氏名</th>
+      　　<th>メールアドレス</th>
+      　　<th>ステータス</th>
+    　　</tr>
+  　　　　</thead>
+  　　　　
+ 　　　　 <tobody>
+    　　<% @customers.each do |customer| %>
+    　　<tr>
+        　<td><%= customer.id %></td>
+        　<td>
+          　<%= link_to admin_customer_path(customer), class: "link" do %>
+          　<%= customer.last_name %><%= customer.first_name %>
+          　<% end %>
+        　</td>
+        　<td><%= customer.email %></td>
+        　<td>
+             <% if customer.is_deleted == false %>
+             <span style="font-weight: bold; color:#28a44a;">
+              有効
+             </span>
+             <% else %>
+             <span style="font-weight: bold; color:#dddddd;">
+              退会
+             </span>
+             <% end %>  
 
-    </tr>
-    <% end %>
-  </tobody>
-
+        　</td>
+   　　 　 </tr>
+    　　<% end %>
+       </tobody>
+       </tadle>
+    </div>
+  </div>
 </div>

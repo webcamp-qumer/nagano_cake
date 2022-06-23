@@ -1,19 +1,28 @@
-<h1>注文履歴詳細</h1>
-<p>購入者<%= @order.customer.name %></p>
-<p>注文日<%= @order.created_at %></p>
-<p>配送先
-   <%= @order.postcode%><%= @order.address %>
-   <%= @order.name %>
-</p>
-<p>支払い方法
-</p>
-<p>注文ステータス
-   <% form_with model:@order, url:admin_order_path do |f| %>
-   <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
-   <!--select=プルダウンメニューの表示-->
-   <%= f.submit '更新' %>
-   <% end %>
-</p>
+<div class="title">
+<h3>注文履歴詳細</h3>
+</div>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-10'>
+      <p><string>購入者</string><%= @order.customer.name %></p>
+      <p><string>注文日</string><%= @order.created_at %></p>
+      <p><string>配送先</string>
+        <%= @order.postcode%><%= @order.address %>
+        <%= @order.name %>
+      </p>
+      <p><string>支払い方法</string>
+        <%= @order.pay_method </p>
+      <p><string>注文ステータス</string>
+         <% form_with model:@order, url:admin_order_path do |f| %>
+         <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
+         <!--select=プルダウンメニューの表示-->
+         <%= f.submit '更新', class: 'btn btn-success font-weight-bold' %>
+         <% end %>
+      </p>
+    </div>
+  </div>
+</div>
 
 <div>
   <table>
@@ -26,14 +35,14 @@
       <th>製作ステータス</th>
     </tr>
   </thead>
-  
-  <tobody> 
+
+  <tobody>
     <% @order_histories.each do |order_history| %>
     <td><%= order_history.item.name %></td>
     <td><%= order_history.price %></td>
-    <td><%= order_history.amount %></td>
-    <td><%= order_history.price*order_history.amount %></td>
-        <% @total = @total + order_history.price*order_history.amount %>
+    <td><%= order_history.quantity %></td>
+    <td><%= order_history.price*order_history.quantity %></td>
+        <% @total = @total + order_history.price*order_history.quantity %>
         <!--左の@totalは変数-->
     <% end %>
 
@@ -41,7 +50,7 @@
         <% form_with model:@order_history, url:admin_order_history_path(order_history) do |f| %>
         <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
         <!--select=プルダウンメニューの表示-->
-        <%= f.submit '更新'%>
+        <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
        <% end %>
     </td>
   </tobody>
@@ -51,14 +60,14 @@
 <div>
   <p>
     <string>商品合計</string>
-    <%= @total %>円
+    <%= @total.to_s(:delimited) %>円
   </p>
   <p>
   　<string>送料</string>
-  　<%= @order.postage %>円
+  　<%= @order.postage.to_s(:delimited) %>円
   </p>
   <p>
   <string>請求合計金額</string>
-    <%= @order.total_price %>円
+    <%= @order.total_price.to_s(:delimited) %>円
   </p>
 </div>
