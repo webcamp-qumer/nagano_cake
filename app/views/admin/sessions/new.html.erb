@@ -1,20 +1,14 @@
 <div class='login-image'>
-<div class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-4 mx-auto">
-          <h3><strong>管理者</strong>ログイン</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="form-wrapper">
+  
 <div class='container'>
   <div class='row'>
-    <div class="col-6 mx-auto">
+    <div class="mx-auto">
       <div class='well '>
+        
+        <div class='admin_loogin'>
+          <h3><strong>管理者</strong>ログイン</h3>
+        </div>
+        
               <%= form_with model: @admin, url: admin_session_path do |f| %>
   
               <div class="field">
@@ -43,6 +37,5 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 </div>

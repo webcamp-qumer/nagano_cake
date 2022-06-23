@@ -4,26 +4,23 @@
 
 .login-image {
   justify-content: center;
-  margin: 100px;
   background-image: image-url('log-in.jpeg');
+  background-size: cover;
 }
 
-.header {
-  padding: 20px;
+.admin_login {
   text-align: center;
-}
-.well {
   padding: 20px;
-  margin: 20px;
-  border: 1px solid;
+  margin-bottom: 40px;
+}
+
+.well {
+  padding: 40px;
+  margin: 40px;
+  border: 2px solid;
   text-align:  center;
 }
 
 .field {
-  margin-bottom: 15px;
-}
-
-
-.btn-primary {
-  width: 25%;
+  margin-bottom: 40px;
 }
