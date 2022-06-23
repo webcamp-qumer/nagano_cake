@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_histories, dependent: :destroy
+  belongs_to :customer
 
   #空だと保存することができない
   validates :name, presence: true

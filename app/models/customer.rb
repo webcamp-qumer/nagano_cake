@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
   has_many :order_histories, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   #空だと保存することができない
   validates :last_name, presence: true
