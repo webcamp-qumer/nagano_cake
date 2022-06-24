@@ -1,24 +1,22 @@
 <div class="title">
   <div class="container">
-    <div class="row">
-      <div class="col-2">
           <h3>商品詳細</h3>
-      </div>
-    </div>
   </div>
 </div>
 
+<div class='item_show'>
 <div class='container'>
   <div class='row'>
-    <div class='col-3'>
+    <div class='col-6 d-flex justify-content-center'>
+      
       <% if @item.image.attached? %>
-　    <%= image_tag @item.image, size: "200x200" %><!--image_tag=画像を表示するための記述-->
+　    <%= image_tag @item.image, size: "250x250" %><!--image_tag=画像を表示するための記述-->
 　    <% else %>
-　      <%= image_tag 'no-image', size: "200x200" %>
+　      <%= image_tag 'no-image', size: "250x250" %>
 　    <% end %>
     </div>
     
-    <div class='col-7'>
+    <div class='col-6'>
     <table>  
     <tr>
      <th>商品名</th>
@@ -55,4 +53,6 @@
     </table>
 
     <%= link_to '編集する', edit_admin_item_path(@item), class: 'btn btn-success font-weight-bold' %>  
+  </div>
+</div>
 </div>
