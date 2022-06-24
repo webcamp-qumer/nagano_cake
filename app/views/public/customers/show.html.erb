@@ -1,61 +1,55 @@
-<h1>マイページ</h1>
-
- <div class="customer_show">
+<div class="customer_show">
+ <h1>マイページ</h1>
   <table>
-   <tbody>
+   <tbody class="my_information">
     <tr>
-     <th>氏名</th>
-     <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+     <th class="border_my customer_title">氏名</th>
+     <td class="border_my customer_body"><%= @customer.last_name %>　<%= @customer.first_name %></td>
     </tr>
     
     <tr>
-     <th>フリガナ</th>
-     <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+     <th class="border_my">フリガナ</th>
+     <td class="border_my"><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
     </tr>
     
     <tr>
-     <th>郵便番号</th>
-     <td><%= @customer.postcode %></td>
+     <th class="border_my">郵便番号</th>
+     <td class="border_my"><%= @customer.postcode %></td>
     </tr>
     
     <tr>
-     <th>住所</th>
-     <td><%= @customer.address %></td>
+     <th class="border_my">住所</th>
+     <td class="border_my"><%= @customer.address %></td>
     </tr>
     
     <tr>
-     <th>電話番号</th>
-     <td><%= @customer.phone_number %></td>
+     <th class="border_my">電話番号</th>
+     <td class="border_my"><%= @customer.phone_number %></td>
     </tr>
     
     <tr>
-     <th>メールアドレス</th>
-     <tb><%= @customer.email %></tb>
+     <th class="border_my">メールアドレス</th>
+     <td class="border_my"><%= @customer.email %></td>
     </tr>
    </tbody>
   </table>
- 
- 
-      
-      <tr>
-       <tb class="customer_title border_my"></tb>
-       <tb class="customer_information border_my"><br></tb>
-      </tr>
-      
-      <tr>
-       <tb class="customer_title border_my"></tb>
-       <tb class="customer_information border_my"></tb>
-      </tr>
-      
-    </tbody>
-   </table>
- </div>
-   
-
-
-
 <% if @customer == current_customer %>
- <%= link_to '編集', edit_public_customer_path(current_customer.id) %>
- <%= link_to '配送先一覧', addresses_path(current_customer.id) %>
-<% end %>
+ <%= link_to edit_public_customer_path(current_customer.id), class: 'nav-link text-light' do %>
+ 　<i class="bi bi-pencil-square" style="font-size: 2rem; color: cornflowerblue;" ></i>編集
+ <% end %>
+ 
+ 
+ <%= link_to addresses_path(current_customer.id), class: 'nav-link text-light' do %>
+ 　<i class="bi bi-truck" style="font-size: 2rem; color: cornflowerblue;" ></i>配送先一覧
+ <% end %>
+ 
+ 
+ <%= link_to orders_path(current_customer.id), class: 'nav-link text-light' do %>
+ 　<i class="bi bi-bag" style="font-size: 2rem; color: cornflowerblue;" ></i>注文履歴
+ <% end %>
+ <% end %>
+</div>
+
+
+ 
 
