@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-main {
+.login-image {
   justify-content: center;
   background-image: image-url('log-in.jpeg');
   background-size: cover;
-  height: 100vh; //前画面表示
+  height: 90vh;  //前画面表示
 }
 
 // 中心にする
