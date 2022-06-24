@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
     @item = Item.new(item_params)
     @item.customer_id = current_user.id
     if @item.save
-      redirect_to thanks
+      redirect_to thanks_path
     else
       @items = Item.all
       render :new
