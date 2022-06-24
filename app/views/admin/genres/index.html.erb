@@ -1,14 +1,10 @@
 <div class="title">
   <div class="container">
-    <div class="row">
-      <div class="col-4">
           <h3>ジャンル一覧・追加</h3>
-      </div>
-    </div>
   </div>
 </div>
 
-<table  class='table table-hover table-inverse'>
+<div class='genre_form'>
   <div class='container'>
     <div class='row'>
       <div class='col-2'>
@@ -18,13 +14,13 @@
         <%= form_with model:@genre, url: admin_genres_path do |f| %>
         <%= f.text_field :name %>
       </div>
-      <div class='col-4'>
+      <div class='col-3'>
         <%= f.submit '新規登録', class: 'btn btn-success font-weight-bold' %>
       </div>
         <% end %>
     </div>
   </div>
-</table>
+</div>
 
  <div class='container'>
    <div class='row'>
