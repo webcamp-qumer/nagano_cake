@@ -20,8 +20,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index,:show]
     resources :orders, only: [:create, :update, :conform, :index, :new, :show, :thanks]
     resources :cart_items, only: [:create, :index, :update, :destroy]
-
-    #delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
     end
 
   #作ったコントローラーの場所を記述

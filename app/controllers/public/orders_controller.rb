@@ -30,6 +30,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    #@order = order.find(params[:id])
+    @order_histories = OrderHistory
+    @total = @cart_items.inject(0) { |sum, item| sum + item.total_price }
   end
 
   def update
