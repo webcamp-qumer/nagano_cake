@@ -15,8 +15,8 @@
             <% else %>
               <%= image_tag 'no-image', size: "200x200" %><br>
             <% end %>
-              <%= link_to items.name, orders_path %><br>
-              <%= items.message %>
+              <%= link_to items.name, item_path(items.id) %><br>
+              <p>￥<%= items.price.to_s(:delimited) %></p>
             
           </div>
           <% end %>
