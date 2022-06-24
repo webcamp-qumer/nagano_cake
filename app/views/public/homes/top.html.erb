@@ -15,13 +15,19 @@
             <% else %>
               <%= image_tag 'no-image', size: "200x200" %><br>
             <% end %>
+
               <%= link_to items.name, item_path(items.id) %><br>
               <p>￥<%= items.price.to_s(:delimited) %></p>
             
+
+              <%= link_to items.name, orders_path %><br>
+              <%= items.message %>
+
+
           </div>
           <% end %>
 </div>
-  
+
 
 <%= link_to 'すべての商品を見る', items_path %>
-  
+

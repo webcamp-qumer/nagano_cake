@@ -2,12 +2,18 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @item = Item.find(params[:id])
-    @item = public_customer.item
+    @cart_items = current_customer.cart_items
+    @order = Order.new(order_params)
+  end
+
+  def new
+    @address = Address.all
+    @address_costomer = current_customer
   end
 
   def create
     @item = Item.new(item_params)
-    @item.customer_id = current_user.id
+    @item.customer_id = current_costomer.id
     if @item.save
       redirect_to thanks_path
     else
@@ -24,6 +30,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    #@order = order.find(params[:id])
+    @order_histories = OrderHistory
+    @total = @cart_items.inject(0) { |sum, item| sum + item.total_price }
   end
 
   def update
@@ -32,7 +41,7 @@ class Public::OrdersController < ApplicationController
 
   private
 
-  def customer_params
-    params.require(:customer).permit(:name, :postcode, :address, :postage , :total_price)
+  def order_params
+    params.require(:order).permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
   end
 end
