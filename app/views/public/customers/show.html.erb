@@ -1,7 +1,6 @@
 <div class="customer_show">
  <h1>マイページ</h1>
   <table>
-   <tbody class="my_information">
     <tr>
      <th class="border_my customer_title">氏名</th>
      <td class="border_my customer_body"><%= @customer.last_name %>　<%= @customer.first_name %></td>
@@ -31,23 +30,27 @@
      <th class="border_my">メールアドレス</th>
      <td class="border_my"><%= @customer.email %></td>
     </tr>
-   </tbody>
   </table>
-<% if @customer == current_customer %>
- <%= link_to edit_public_customer_path(current_customer.id), class: 'nav-link text-light' do %>
- 　<i class="bi bi-pencil-square" style="font-size: 2rem; color: cornflowerblue;" ></i>編集
- <% end %>
- 
- 
- <%= link_to addresses_path(current_customer.id), class: 'nav-link text-light' do %>
- 　<i class="bi bi-truck" style="font-size: 2rem; color: cornflowerblue;" ></i>配送先一覧
- <% end %>
- 
- 
- <%= link_to orders_path(current_customer.id), class: 'nav-link text-light' do %>
- 　<i class="bi bi-bag" style="font-size: 2rem; color: cornflowerblue;" ></i>注文履歴
- <% end %>
- <% end %>
+  
+  <div class="row">
+   <% if @customer == current_customer %>
+    <%= link_to edit_public_customer_path(current_customer.id), class: 'nav-link icon_text' do %>
+    　<i class="bi bi-pencil-square" style="font-size: 2rem; color: cornflowerblue;" ></i><div calss="icon_text">編集</div>
+    <% end %>
+    
+    
+    <%= link_to addresses_path(current_customer.id), class: 'nav-link icon_text' do %>
+    　<i class="bi bi-truck" style="font-size: 2rem; color: cornflowerblue;" ></i><div calss="icon_text">配送先一覧</div>
+    <% end %>
+    
+    
+    <%= link_to orders_path(current_customer.id), class: 'nav-link icon_text' do %>
+    　<i class="bi bi-bag" style="font-size: 2rem; color: cornflowerblue;" ></i><div calss="icon_text">注文履歴一覧</div>
+    <% end %>
+   <% end %>
+   
+  </div>
+
 </div>
 
 

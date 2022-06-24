@@ -4,12 +4,12 @@ class Public::CartItemsController < ApplicationController
     @items = Item.all
     @cart_items = current_customer.cart_items.all
     # カートに入ってる商品の合計金額
+    
     @total = @cart_items.inject(0) { |sum, item| sum + item.total_price }
   end
 
   def create
     @item = CartItem.new(cart_item_params)
-    #@item.customer_id = current_user.id
     if @item.save
       redirect_to cart_items_path
     else
@@ -19,17 +19,20 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-  end
-
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
+    @item = CartItem.find(params[:id])
+    @item = @item.update(cart_item_params)
+    redirect_to cart_items_path
   end
 
   def destroy_all
-    Item.destroy_all
-    redirect_to cart_item_path
+    CartItem.destroy_all
+    redirect_to items_path
+  end
+
+  def destroy
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_items_path
   end
 
   private
@@ -40,7 +43,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :amount)
+    params.require(:item).permit(:name, :quantity)
   end
 
 end
