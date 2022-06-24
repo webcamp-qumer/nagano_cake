@@ -26,6 +26,10 @@
     text-align: center;
 }
 
+input#customer_address.address_text{
+  width:  450px;
+}
+
  input.new_button{
   width: 200px;
   background-color: #a6ce39;
