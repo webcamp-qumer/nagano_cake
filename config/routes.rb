@@ -37,3 +37,8 @@ Rails.application.routes.draw do
   end
    resources :order_histories, only: [:update]
 end
+
+
+
+
+
