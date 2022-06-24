@@ -3,14 +3,23 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .customer_show{
-  margin: 20px 50px;
+  margin: 20px 100px;
 }
 
-
+.information{
+  
+}
 
 .border_my{
   border-width: 1px;
   border-style: solid;
   border-collapse:  collapse;
-  width:  300%;
+}
+
+.customer_title{
+  width:  200px;
+}
+
+.customer_body{
+  width:  300px;
 }
