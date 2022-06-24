@@ -1,0 +1,53 @@
+<div class="orders_index">
+  <% @order_histories.each do |order_history| %>
+  <h2>注文履歴詳細</h2>
+  <p>注文情報</p>
+  <table>
+    <tr>
+      <th class="border_my">注文日</th>
+      <th class="border_my"><%= order_history.created_at %></th>
+      
+      <th class="border_my">配送先</th>
+      <th class="border_my"><%= order_history.postcode %></br><%= order_history.address %></br><%= order_history.name %></th>
+      
+      <th class="border_my">支払方法</th>
+      <th class="border_my"><%= order_history.pay_method %></th>
+      
+      <th class="border_my">ステータス</th>
+      <th class="border_my"><%= order_history.status %></th>
+    </tr>
+</table>
+
+<p>請求情報</p>
+  <table>
+    <tr>
+      <th class="border_my">商品合計</th>
+      <th class="border_my"><%= order_history.order.total_price %></th>
+      
+      <th class="border_my">配送料</th>
+      <th class="border_my"><%= order_history.postage %></th>
+      
+      <th class="border_my">ご請求額</th>
+      <th class="border_my"><%= order_history.total_price+order_history.postage %></th>
+    </tr>
+</table>
+
+<p>注文内容</p>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>商品</th>
+      <th>単価(税込)</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= order_history.item %></td>
+      <td><%= order_history.item.price_non_tax*1.10 %></td>
+      <td><%= order_history.quantity %></td>
+      <td><%= order_history.@total.round.to_s(:delimited) %></td>
+    </tr>
+  </tbody>
+</div>

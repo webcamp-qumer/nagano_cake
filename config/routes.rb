@@ -15,10 +15,10 @@ Rails.application.routes.draw do
     scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    #get 'orders/:id' => 'order#show', as: 'order'
+    get 'confirm' => 'orders#confirm'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
-    resources :orders, only: [:conform,:index,:new,:show,:thanks]
+    resources :orders, only: [:create, :update, :conform, :index, :new, :show, :thanks]
     resources :cart_items, only: [:create, :index, :update, :destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
     end
@@ -37,4 +37,8 @@ Rails.application.routes.draw do
   end
    resources :order_histories, only: [:update]
 end
-   
+
+
+
+
+
