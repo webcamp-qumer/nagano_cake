@@ -15,12 +15,13 @@ Rails.application.routes.draw do
     scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    #get 'orders/:id' => 'order#show', as: 'order'
+    post 'confirm' => 'orders#confirm'
+    get 'thanks' => 'orders#thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
-    resources :orders, only: [:conform,:index,:new,:show,:thanks]
-    resources :cart_items, only: [:create, :index, :update, :destroy]
+    resources :orders, only: [:create, :update, :index, :new, :show]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+    resources :cart_items, only: [:create, :index, :update, :destroy]
     end
 
   #作ったコントローラーの場所を記述
@@ -37,4 +38,8 @@ Rails.application.routes.draw do
   end
    resources :order_histories, only: [:update]
 end
-   
+
+
+
+
+
