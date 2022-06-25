@@ -10,7 +10,7 @@
 <% end %>
 
 <h4>お届け先</h4>
-<%= form_with model: Address.new do |f| %>
+<%= form_with model: @order, url: confirm_path  do |f| %>
 
 <%= f.radio_button :address, "address" %>
 <%= f.label :address, "ご自身の住所" %>

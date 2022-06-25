@@ -6,18 +6,13 @@
 
 <div class='genre_form'>
   <div class='container'>
-    <div class='row'>
-      <div class='col-2'>
+    <div class='col-4 mx-auto'>
         ジャンル名
-      </div>
-      <div class='col-3'>
         <%= form_with model:@genre, url: admin_genres_path do |f| %>
         <%= f.text_field :name %>
-      </div>
-      <div class='col-3'>
-        <%= f.submit '新規登録', class: 'btn btn-success font-weight-bold' %>
-      </div>
+        <%= f.submit '新規登録', class: 'btn btn-outline-danger font-weight-bold' %>
         <% end %>
+
     </div>
   </div>
 </div>
@@ -40,6 +35,7 @@
           <th><%= link_to '編集する', edit_admin_genre_path(genre), class: 'btn btn-success font-weight-bold' %></th>
         </tr>
         <% end %>
+        
       </tobody>
      </table>
      </div>

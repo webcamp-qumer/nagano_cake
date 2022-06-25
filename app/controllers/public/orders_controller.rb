@@ -1,9 +1,24 @@
 class Public::OrdersController < ApplicationController
 
   def confirm
-    @item = Item.find(params[:id])
+    
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
+    
+    if params[:order][:address] == 'address'
+      @order.postcode = current_costomer.postcode
+      @order.address = current_costomer.address
+      @order.name = current_costomer.last_name + current_costomer.first_name
+    elsif params[:order][:address] == 'index'
+      @address = Address.find(params[:address_id][:order])
+      @order.postcode = @address. postcode
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:address] == 'create'
+      @order.postcode = params[:order][:postcode]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:last_name] + params[:order][:first_name]
+    end  
   end
 
   def new
@@ -42,6 +57,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
+    params.permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
   end
 end

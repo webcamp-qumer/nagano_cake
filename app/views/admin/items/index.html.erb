@@ -1,11 +1,14 @@
 <div class="title">
   <div class="container">
     
+        <div class='items'>  
           <h3>商品一覧</h3>
-          
-         <%= link_to new_admin_item_path,class: 'nav-link' do %>
-         <h4>商品新規登録<i class="fas fa-plus-circle"></i></h4>   
-         <% end %>
+        </div>
+        
+           <%= link_to new_admin_item_path,class: 'nav-link' do %>
+           <h4>商品新規登録<i class="fas fa-plus-circle"></i></h4>   
+           <% end %>
+           
   </div>
 </div>
 
@@ -24,7 +27,6 @@
     </tr>
   </thead>
   
-  <tobody>
     <% @items.each do |item| %>
     <tr>
         <td><%= item.id %></td>
@@ -48,7 +50,6 @@
 
     </tr>
     <% end %>
-  </tobody>
 </tadle>
     </div>
   </div>

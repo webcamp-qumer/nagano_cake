@@ -15,12 +15,12 @@ Rails.application.routes.draw do
     scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    get 'confirm' => 'orders#confirm'
+    post 'confirm' => 'orders#confirm'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
     resources :orders, only: [:create, :update, :conform, :index, :new, :show, :thanks]
-    resources :cart_items, only: [:create, :index, :update, :destroy]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+    resources :cart_items, only: [:create, :index, :update, :destroy]
     end
 
   #作ったコントローラーの場所を記述
