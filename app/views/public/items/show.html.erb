@@ -1,8 +1,8 @@
 <h2>商品詳細</h2>
-<%= image_tag @item.image, size:'100x200' %>
+<%= image_tag @item.image, size:'200x200' %>
 <h3><%= @item.name %></h3>
     <%= @item.message %>
-  ￥<%= @item.price.to_s(:delimited)  %>(税込)
+  ￥<%= @item.price.to_s(:delimited) %>(税込)
 
 <%= form_with model: CartItem.new do |f| %>
   <%= f.hidden_field :item_id, :value => @item.id %>
