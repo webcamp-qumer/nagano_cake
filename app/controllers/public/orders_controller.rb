@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
 
     elsif
       params[:order][:address_select] == "2"
-      @address = Address.find(params[:address_id][:order])
+      @address = Address.find(params[:order][:address_id])
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.name = @address.name
@@ -32,10 +32,24 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @item = Order.new(order_params)
-    @item.customer_id = current_customer.id
-    @item.save
+    @order = Order.new(order_params)
+    @order.total_price = 1212
+    @order.postage = 800
+    @order.customer_id = current_customer.id
+
+    if @order.save
+      @cart_items = CartItem.all
+      @cart_items.each do |cart_item|
+        order_history = OrderHistory.new
+        order_history.price_non_tax = cart_item.item.price_non_tax
+        order_history.status = 0
+        order_history.quantity = cart_item.quantity
+        order_history.order_id = @order.id
+        order_history.item_id = cart_item.item_id
+        order_history.save
+      end
       redirect_to thanks_path
+    end
   end
 
   def show
@@ -46,7 +60,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @order_histories = OrderHistory.all
+    @orders = Order.all
     @total = 0
   end
 
