@@ -1,2 +1,39 @@
+注文情報確認
+<% @cart_items.each do |cart_item| %>
+商品名
+単価(税込)
+数量
+小計
 
+<%= cart_item.item.name %>
+<%= cart_item.item.price %>
+<%= cart_item.quantity %>
+<%= cart_item.quantity*cart_item.item.price %>
+<% @total = @total + cart_item.quantity*cart_item.item.price %>
+
+送料
+商品合計
+請求金額
+
+800
+<%= @total*1.10.floor %>
+<%= @order_total = @total*1.10.floor+800 %>
+
+<% end %>
+
+
+支払方法
+<%= @order.pay_method %>
+お届け先
+<%= @order.postcode %>
+<%= @order.address %>
+<%= @order.name %>
+
+<%= form_with model: Order.create, url: orders_path do |f| %>
+<%= f.hidden_field :order_total, :value => @order_total %>
+<%= f.hidden_field :pay_method, :value => @order.pay_method %>
+<%= f.hidden_field :postcode, :value => @order.postcode %>
+<%= f.hidden_field :address, :value => @order.address %>
+<%= f.hidden_field :name, :value => @order.name %>
 <%= f.submit "注文を確定する" %>
+<% end %>
