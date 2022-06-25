@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
 
     elsif
       params[:order][:address_select] == "2"
-      @address = Address.find(params[:address_id][:order])
+      @address = Address.find(params[:order][:address_id])
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.name = @address.name
@@ -23,7 +23,6 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
->>>>>>> origin/develop
   end
 
   def new

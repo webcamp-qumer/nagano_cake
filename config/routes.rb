@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+
   #顧客側のルート
   namespace :public do
     resources :customers
@@ -16,13 +17,14 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     post 'confirm' => 'orders#confirm'
+    get 'thanks' => 'orders#thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index,:show]
-    resources :orders, only: [:create, :update, :conform, :index, :new, :show, :thanks]
+    resources :orders, only: [:create, :update, :index, :new, :show]
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
     resources :cart_items, only: [:create, :index, :update, :destroy]
     end
-
+    
   #作ったコントローラーの場所を記述
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: { #passwordの変更、sign_up機能の削除
     sessions: "admin/sessions" #管理者はログイン機能のみ
