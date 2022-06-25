@@ -1,40 +1,42 @@
 class Public::OrdersController < ApplicationController
 
   def confirm
-    
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
-    
-    if params[:order][:address] == 'address'
-      @order.postcode = current_costomer.postcode
-      @order.address = current_costomer.address
-      @order.name = current_costomer.last_name + current_costomer.first_name
-    elsif params[:order][:address] == 'index'
+    @total = 0
+    if
+      params[:order][:address_select] == "1"
+      @order.postcode = current_customer.postcode
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name+current_customer.first_name
+
+    elsif
+      params[:order][:address_select] == "2"
       @address = Address.find(params[:address_id][:order])
-      @order.postcode = @address. postcode
+      @order.postcode = @address.postcode
       @order.address = @address.address
       @order.name = @address.name
-    elsif params[:order][:address] == 'create'
+
+    elsif
+      params[:order][:address_select] == "3"
       @order.postcode = params[:order][:postcode]
       @order.address = params[:order][:address]
-      @order.name = params[:order][:last_name] + params[:order][:first_name]
-    end  
+      @order.name = params[:order][:name]
+    end
+>>>>>>> origin/develop
   end
 
   def new
+    @order = Order.new
     @address = Address.all
-    @address_costomer = current_customer
+    @address_customer = current_customer
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.customer_id = current_costomer.id
-    if @item.save
+    @item = Order.new(order_params)
+    @item.customer_id = current_customer.id
+    @item.save
       redirect_to thanks_path
-    else
-      @items = Item.all
-      render :new
-    end
   end
 
   def show
@@ -45,13 +47,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    #@order = order.find(params[:id])
-    @order_histories = OrderHistory
-    @total = @cart_items.inject(0) { |sum, item| sum + item.total_price }
+    @order_histories = OrderHistory.all
+    @total = 0
   end
 
   def update
-    @item = Item.find(params[:id])
   end
 
   private

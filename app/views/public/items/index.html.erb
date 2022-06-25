@@ -6,6 +6,7 @@
       <% else %>
         <%= image_tag 'no-image', size: "100x100" %>
       <% end %>
-  <%= link_to item.name, item_path(item.id) %>
+
+  <%= link_to item.name, item_path(item) %><br>
       <p>￥<%= item.price.to_s(:delimited) %></p>
 <% end %>

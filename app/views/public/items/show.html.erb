@@ -1,14 +1,16 @@
 <h2>商品詳細</h2>
 
+
       <% if @item.image.attached? %>
 　    <%= image_tag @item.image, size: "100x200" %><!--image_tag=画像を表示するための記述-->
 　    <% else %>
 　      <%= image_tag 'no-image', size: "100x200" %>
 　    <% end %>
 　    
+
 <h3><%= @item.name %></h3>
     <%= @item.message %>
-  ￥<%= @item.price.to_s(:delimited)  %>(税込)
+  ￥<%= @item.price.to_s(:delimited) %>(税込)
 
 <%= form_with model: CartItem.new do |f| %>
   <%= f.hidden_field :item_id, :value => @item.id %>
