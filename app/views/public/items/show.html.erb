@@ -1,5 +1,10 @@
 <h2>商品詳細</h2>
-<%= image_tag @item.image, size:'200x200' %>
+<% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "200x200" %><br>
+<% else %>
+    <%= image_tag 'no-image', size: "200x200" %><br>
+  <% end %>
+<%#= image_tag @item.image, size:'200x200' %>
 <h3><%= @item.name %></h3>
     <%= @item.message %>
   ￥<%= @item.price.to_s(:delimited) %>(税込)

@@ -33,7 +33,7 @@
          <td class="edit_customer_button">
            <%= f.submit "変更内容の保存", {class: 'btn btn-success font-weight-bold new_button'} %>
          </td>
-         <th class="btn btn-outline-danger"><%= link_to "退会する", public_unsubscribe_path(current_customer) %> </th>
+         <th class=""><%= link_to "退会する", public_unsubscribe_path(current_customer), class: 'btn btn-danger' %> </th>
        </tr>
        
      </table>

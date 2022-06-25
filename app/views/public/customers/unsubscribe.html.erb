@@ -1,4 +1,4 @@
 退会確認
 
-<li><%= link_to '退会しない', public_customer_path(current_customer) %></li>
-<li><%= link_to '退会する', public_withdrawal_path, method: :patch %> </li>
+<li><%= link_to '退会しない', public_customer_path(current_customer), class: 'btn btn-primary' %></li>
+<li><%= link_to '退会する', public_withdrawal_path,class: 'btn btn-danger', method: :patch %> </li>
