@@ -30,7 +30,7 @@
 <%= @order.name %>
 
 <%= form_with model: Order.create, url: orders_path do |f| %>
-<%= f.hidden_field :order_total, :value => @order_total %>
+<%= f.hidden_field :total_price, :value => @total_price %>
 <%= f.hidden_field :pay_method, :value => @order.pay_method %>
 <%= f.hidden_field :postcode, :value => @order.postcode %>
 <%= f.hidden_field :address, :value => @order.address %>
