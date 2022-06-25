@@ -20,7 +20,7 @@
 </table>
 <h2>請求情報</h2>
 <table>
-  
+  <!---->
 </table>
 
       <th>注文商品</th>
@@ -33,8 +33,6 @@
   <tbody>
     <% @order_histories.each do |order_history| %>
       <tr>
-        
-        
         <td><%= order_history.item %></td>
         <td><%= order_history.total_price %></td>
         <td><%= order_history.status %></td>
