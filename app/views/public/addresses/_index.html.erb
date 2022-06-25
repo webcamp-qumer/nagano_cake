@@ -1,22 +1,24 @@
-<table>
-  <thead>
-    <tr>
-      <th>宛名</th>
-      <th>郵便番号</th>
-      <th>配送先</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<main class="sign_up addresses_index">
+  <table class="edit_address_page">
+    <thead>
+      <tr>
+        <th class="edit_post_code border_my">郵便番号</th>
+        <th class="edit_address border_my">配送先</th>
+        <th class="eidt_name border_my">宛名</th>
+        <th class="border_my"></th>
+      </tr>
+    </thead>
   <tbody>
     <% addresses.each do |address| %>
       <tr>
-        <td><%= address.name %></td>
-        <td><%= address.postcode %></td>
-        <td><%= address.address %></td>
-        <td><%= link_to '編集', edit_address_path(address.id) %></td>
-        <td><%= link_to '削除', address_path(address), method: :delete %></td>
+        <td class="border_my"><%= address.postcode %></td>
+        <td class="border_my"><%= address.address %></td>
+        <td class="border_my"><%= address.name %></td>
+        <td class="border_my">
+          <%= link_to '編集', edit_address_path(address.id), class: 'btn btn-primary' %>
+          <%= link_to '削除', address_path(address), method: :delete, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</main>

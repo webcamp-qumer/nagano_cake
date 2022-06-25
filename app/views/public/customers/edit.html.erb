@@ -1,5 +1,5 @@
 <div class="edit_main">
-  <h1 class="m__ttl_head">編集</h1>
+  <h1 class="m__ttl_head">会員情報の編集</h1>
     <%= form_with model:@customer, url: public_customer_path(@customer),method: :patch  do |f| %>
     <table>
        <tr>
@@ -31,8 +31,9 @@
        <tr>
          <th></th>
          <td class="edit_customer_button">
-           <%= f.submit "編集登録", {class: 'new_button'} %>
+           <%= f.submit "変更内容の保存", {class: 'btn btn-success font-weight-bold new_button'} %>
          </td>
+         <th class="btn btn-outline-danger"><%= link_to "退会する", public_unsubscribe_path(current_customer) %> </th>
        </tr>
        
      </table>
