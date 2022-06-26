@@ -33,34 +33,35 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.total_price = 1212
+    # @order.total_price
     @order.postage = 800
     @order.customer_id = current_customer.id
 
-    if @order.save
-      @cart_items = CartItem.all
+    if @order.save!
+      @cart_items = current_customer.cart_items.all
       @cart_items.each do |cart_item|
         order_history = OrderHistory.new
         order_history.price_non_tax = cart_item.item.price_non_tax
-        order_history.status = 0
         order_history.quantity = cart_item.quantity
         order_history.order_id = @order.id
         order_history.item_id = cart_item.item_id
         order_history.save
+        cart_item.destroy
       end
       redirect_to thanks_path
     end
   end
 
   def show
+    @order_histories = OrderHistory.all
     @order = Order.find(params[:id])
     new_history = @order.order_histories.new
-    new_history.customer_id = current_user.id
+    new_history.order.customer_id = current_customer.id
     new_history.save
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
     @total = 0
   end
 
@@ -69,7 +70,7 @@ class Public::OrdersController < ApplicationController
 
   private
 
-  def order_params
+ def order_params
     params.require(:order).permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
-  end
+ end
 end

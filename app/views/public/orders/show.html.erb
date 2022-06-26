@@ -12,32 +12,27 @@
      <% @order_histories.each do |order_history| %>
      <tr>
        <td><%= order_history.created_at %></td>
-       <td><%= order_history.postcode %><%= order_history.address %><%= order_history.name %></td>
-       <td><%= order_history.pay_method %></td>
-       <td><%= order_history.status %></td>
+       <td><%= order_history.order.postcode %><%= order_history.order.address %><%= order_history.order.name %></td>
+       <td><%= order_history.order.pay_method %></td>
+       <td><%= order_history.order.status %></td>
      </tr>
+     <% end %>
   </tbody>
-</table>
-<h2>請求情報</h2>
-<table>
-  <!---->
 </table>
 
-      <th>注文商品</th>
-      <th>支払金額</th>
-      <th>ステータス</th>
-      <th>注文詳細</th>
-      <th colspan="6"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @order_histories.each do |order_history| %>
-      <tr>
-        <td><%= order_history.item %></td>
-        <td><%= order_history.total_price %></td>
-        <td><%= order_history.status %></td>
-        <td><%= link_to "表示する" , item_path(item.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
+<h2>請求情報</h2>
+<table>
+  <tr>
+    <th>合計金額</th>
+    <th>配送料</th>
+    <th><span>ご請求額</span></th>
+  </tr>
+  <tr>
+    <th><%= @order.total_price %></th>
+    <th><%= @order.postage %></th>
+    <th><%= @order.total_price + @order.postage %></th>
+  </tr>
+</table>
+
+<table>
 </table>
