@@ -1,12 +1,11 @@
 <h2>商品詳細</h2>
 
-
-      <% if @item.image.attached? %>
-　    <%= image_tag @item.image, size: "100x200" %><!--image_tag=画像を表示するための記述-->
-　    <% else %>
-　      <%= image_tag 'no-image', size: "100x200" %>
-　    <% end %>
-　    
+<% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "200x200" %><br>
+<% else %>
+    <%= image_tag 'no-image', size: "200x200" %><br>
+  <% end %>
+<%#= image_tag @item.image, size:'200x200' %>
 
 <h3><%= @item.name %></h3>
     <%= @item.message %>

@@ -8,24 +8,18 @@
 
         <h2 class="m__ttl_head">新着商品</h2>
 <div class="top_new_items">
-          <% @items.each.with_index(1) do |items| %>
-          <div class="top_new_item">
-            <% if items.image.attached? %>
-              <%= image_tag items.image, size: "200x200" %><br>
-            <% else %>
-              <%= image_tag 'no-image', size: "200x200" %><br>
-            <% end %>
-
-              <%= link_to items.name, item_path(items.id) %><br>
-              <p>￥<%= items.price.to_s(:delimited) %></p>
-            
-
-              <%= link_to items.name, orders_path %><br>
-              <%= items.message %>
-
-
-          </div>
-          <% end %>
+   <% @items.each.with_index(1) do |items| %>
+    <div class="top_new_item">
+      <% if items.image.attached? %>
+       <%= image_tag items.image, size: "200x200" %><br>
+      <% else %>
+         <%= image_tag 'no-image', size: "200x200" %><br>
+       <% end %>
+       <%= link_to items.name, item_path(items.id) %><br>
+       <p>￥<%= items.price.to_s(:delimited) %></p>
+       <p><%= items.message %></p>
+    </div>
+   <% end %>
 </div>
 
 

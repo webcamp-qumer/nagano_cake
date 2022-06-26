@@ -18,6 +18,10 @@
    margin: 0;
  }
  
+ li{
+   list-style: none;
+ }
+ 
 .title {
   margin: 20px;
   padding: 20px;
