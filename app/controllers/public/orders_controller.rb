@@ -69,6 +69,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def update
+    
   end
 
   private
