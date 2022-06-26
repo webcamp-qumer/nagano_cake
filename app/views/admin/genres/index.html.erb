@@ -7,7 +7,7 @@
 <div class='genre_form'>
   <div class='container'>
     <div class='col-4 mx-auto'>
-        ジャンル名
+        <h4><span>ジャンル名</span></h4>
         <%= form_with model:@genre, url: admin_genres_path do |f| %>
         <%= f.text_field :name %>
         <%= f.submit '新規登録', class: 'btn btn-outline-danger font-weight-bold' %>
@@ -23,7 +23,8 @@
      <table  class='table table-hover table-inverse'>
 　    <thead class='topic'>
         <tr>
-          <th>ジャンル</th>
+          <th align="center"><big>ジャンル</big></th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -31,8 +32,9 @@
       <tobody>
         <% @genres.each do |genre| %>
         <tr>
-          <th><%= genre.name %></th>
+          <th><big><%= genre.name %></big></th>
           <th><%= link_to '編集する', edit_admin_genre_path(genre), class: 'btn btn-success font-weight-bold' %></th>
+          <th><%= link_to '削除する', admin_genre_path(genre), method: :delete, class: 'btn btn-info font-weight-bold' %></th>
         </tr>
         <% end %>
         
