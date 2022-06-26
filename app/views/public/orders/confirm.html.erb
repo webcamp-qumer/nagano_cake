@@ -1,33 +1,51 @@
-注文情報確認
-<% @cart_items.each do |cart_item| %>
-商品名
-単価(税込)
-数量
-小計
+<h1>注文情報確認</h1>
 
-<%= cart_item.item.name %>
-<%= cart_item.item.price %>
-<%= cart_item.quantity %>
-<%= cart_item.quantity*cart_item.item.price %>
-<% @total = @total + cart_item.quantity*cart_item.item.price %>
-
-送料
-商品合計
-請求金額
-
-800
-<%= @total*1.10.floor %>
-<%= @order_total = @total*1.10.floor+800 %>
-
-<% end %>
-
+<table>
+    <thead>
+        <tr>
+            <% @cart_items.each do |cart_item| %>
+            <th class="border_my">商品名</th>
+            <th class="border_my">単価(税込)</th>
+            <th class="border_my">数量</th>
+            <th class="border_my">小計</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border_my"><%= cart_item.item.name %></td>
+            <td class="border_my"><%= cart_item.item.price %></td>
+            <td class="border_my"><%= cart_item.quantity %></td>
+            <td class="border_my"><%= cart_item.quantity*cart_item.item.price %>
+            <% @total = @total + cart_item.quantity*cart_item.item.price %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th class="border_my">送料</th>
+            <th class="border_my">商品合計</th>
+            <th class="border_my">請求金額</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border_my">800</td>
+            <td class="border_my"><%= @total*1.10.floor %></td>
+            <td class="border_my"><%= @order_total = @total*1.10.floor+800 %></td>
+        </tr>
+   </tbody>
+            <% end %>
+</table>
 
 支払方法
-<%= @order.pay_method %>
+<%= @order.pay_method %></br>
+
 お届け先
-<%= @order.postcode %>
-<%= @order.address %>
-<%= @order.name %>
+〒<%= @order.postcode %>
+  <%= @order.address %>
+  <%= @order.name %>
 
 <%= form_with model: Order.create, url: orders_path do |f| %>
 <%= f.hidden_field :total_price, :value => @total_price %>
@@ -35,5 +53,5 @@
 <%= f.hidden_field :postcode, :value => @order.postcode %>
 <%= f.hidden_field :address, :value => @order.address %>
 <%= f.hidden_field :name, :value => @order.name %>
-<%= f.submit "注文を確定する" %>
+<%= f.submit "注文を確定する", class: "btn btn-success" %>
 <% end %>
