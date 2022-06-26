@@ -5,7 +5,11 @@
 <div class='container'>
   <div class='row'>
     <div class='col-10'>
+<<<<<<< HEAD
       <p><string>購入者</string><%= @order.customer.first_name %><%= @order.customer.last_name %></p>
+=======
+      <p><string>購入者</string><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
+>>>>>>> origin/develop
       <p><string>注文日</string><%= @order.created_at %></p>
       <p><string>配送先</string>
         <%= @order.postcode%><%= @order.address %>
@@ -16,6 +20,10 @@
       <p><string>注文ステータス</string>
          <% form_with model: @order, url: admin_order_path do |f| %>
          <%= f.select :status, options_for_select(Order.statuses) %>
+<<<<<<< HEAD
+=======
+        
+>>>>>>> origin/develop
          <!--select=プルダウンメニューの表示-->
          <%= f.submit '更新', class: 'btn btn-success font-weight-bold' %>
          <% end %>
@@ -49,6 +57,7 @@
         <% form_with model: @order_histories, url: order_history_path(@order.id) do |f| %>
         <%= f.select :status, options_for_select(OrderHistory.statuses) %>
         <!--select=プルダウンメニューの表示-->
+        
         <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
        <% end %>
     </td>
