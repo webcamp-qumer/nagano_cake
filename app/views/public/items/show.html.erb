@@ -1,6 +1,7 @@
 <h2>商品詳細</h2>
 
 <% if @item.image.attached? %>
+
     <%= image_tag @item.image, size: "200x200" %><br>
 <% else %>
     <%= image_tag 'no-image', size: "200x200" %><br>
