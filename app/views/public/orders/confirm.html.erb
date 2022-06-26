@@ -1,15 +1,16 @@
+<div align="center" >
 <h1>注文情報確認</h1>
 
 <table>
     <thead>
         <tr>
-            <% @cart_items.each do |cart_item| %>
             <th class="border_my">商品名</th>
             <th class="border_my">単価(税込)</th>
             <th class="border_my">数量</th>
             <th class="border_my">小計</th>
         </tr>
     </thead>
+    <% @cart_items.each do |cart_item| %>
     <tbody>
         <tr>
             <td class="border_my"><%= cart_item.item.name %></td>
@@ -20,7 +21,15 @@
             </td>
         </tr>
     </tbody>
+    <% end %>
 </table>
+支払方法
+<%= @order.pay_method %></br>
+
+お届け先
+〒<%= @order.postcode %>&nbsp;
+  <%= @order.address %>&nbsp;
+  <%= @order.name %>&nbsp;
 <table>
     <thead>
         <tr>
@@ -36,16 +45,7 @@
             <td class="border_my"><%= @order_total = @total*1.10.floor+800 %></td>
         </tr>
    </tbody>
-            <% end %>
 </table>
-
-支払方法
-<%= @order.pay_method %></br>
-
-お届け先
-〒<%= @order.postcode %>
-  <%= @order.address %>
-  <%= @order.name %>
 
 <%= form_with model: Order.create, url: orders_path do |f| %>
 <%= f.hidden_field :total_price, :value => @order_total %>
@@ -55,3 +55,4 @@
 <%= f.hidden_field :name, :value => @order.name %>
 <%= f.submit "注文を確定する", class: "btn btn-success" %>
 <% end %>
+</div>
