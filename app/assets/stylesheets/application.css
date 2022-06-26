@@ -16,6 +16,13 @@
  header {
    padding: 0;
    margin: 0;
+   line-height: 50px;
+ }
+ 
+ li {
+   list-style: none;
+   text-decoration: underline;
+   color: black;
  }
  
  li{
@@ -41,3 +48,9 @@ td {
 footer {
   height: 50px;
 }
+
+ footer {
+   padding: 0;
+   margin: 0;
+   line-height: 50px;
+ }
