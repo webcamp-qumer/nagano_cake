@@ -33,7 +33,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    # @order.total_price
+    @order.total_price
     @order.postage = 800
     @order.customer_id = current_customer.id
 
@@ -42,6 +42,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.each do |cart_item|
         order_history = OrderHistory.new
         order_history.price_non_tax = cart_item.item.price_non_tax
+
         order_history.quantity = cart_item.quantity
         order_history.order_id = @order.id
         order_history.item_id = cart_item.item_id
@@ -63,7 +64,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.all
     @total = 0
   end
 
