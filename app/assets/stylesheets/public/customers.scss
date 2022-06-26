@@ -11,6 +11,7 @@
   border-width: 1px;
   border-style: solid;
   border-collapse:  collapse;
+  padding: 10px;
 }
 
 .customer_title{
@@ -55,4 +56,13 @@ td.edit_customer_body{
 
 .edit_customer_button{
   address_text: center;
+}
+
+.unsubscribe{
+  display: flex;
+  justify-content: center;
+}
+
+.unsubscribe_top{
+  margin: 60px 0;
 }
