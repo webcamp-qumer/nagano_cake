@@ -1,0 +1,30 @@
+// Place all the styles related to the public/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) heref: https://sass-lang.com/
+
+//topページ
+.top_main{
+  margin: 20px 100px;
+}
+
+.top_page{
+  text-align: center;
+}
+
+.top_new_items{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 50px;
+}
+
+.top_new_item{
+  margin-right: 10px;
+  padding: 0;
+  text-align: center;
+}
+
+//Aboutページ
+.about_main{
+  margin: 20px 100px;
+  text-align: center;
+}

@@ -1,0 +1,58 @@
+// Place all the styles related to the public/customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//マイページ
+.customer_show{
+  margin: 20px 100px;
+}
+
+.border_my{
+  border-width: 1px;
+  border-style: solid;
+  border-collapse:  collapse;
+}
+
+.customer_title{
+  width:  200px;
+}
+
+.customer_body{
+  width:  300px;
+}
+
+.icon_text{
+  margin: 0 20px;
+  display: flex;
+  width: 150px;
+  color: #007bff;
+  text-align: center;
+}
+
+//編集ページ
+.edit_main{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.edit_customer_title{
+  width: 200px;
+  padding: 20px;
+}
+
+.edit_customer_name{
+  max-width: 50px;
+}
+
+td.edit_customer_body{
+  padding-right: 40px;
+  max-width: 300px;
+}
+
+.edit_customer_address{
+  width: 500px;
+}
+
+.edit_customer_button{
+  address_text: center;
+}

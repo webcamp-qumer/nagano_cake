@@ -1,0 +1,58 @@
+<div align="center" >
+<h1>注文情報確認</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th class="border_my">商品名</th>
+            <th class="border_my">単価(税込)</th>
+            <th class="border_my">数量</th>
+            <th class="border_my">小計</th>
+        </tr>
+    </thead>
+    <% @cart_items.each do |cart_item| %>
+    <tbody>
+        <tr>
+            <td class="border_my"><%= cart_item.item.name %></td>
+            <td class="border_my"><%= cart_item.item.price %></td>
+            <td class="border_my"><%= cart_item.quantity %></td>
+            <td class="border_my"><%= cart_item.quantity*cart_item.item.price %>
+            <% @total = @total + cart_item.quantity*cart_item.item.price %>
+            </td>
+        </tr>
+    </tbody>
+    <% end %>
+</table>
+支払方法
+<%= @order.pay_method %></br>
+
+お届け先
+〒<%= @order.postcode %>&nbsp;
+  <%= @order.address %>&nbsp;
+  <%= @order.name %>&nbsp;
+<table>
+    <thead>
+        <tr>
+            <th class="border_my">送料</th>
+            <th class="border_my">商品合計</th>
+            <th class="border_my">請求金額</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border_my">800</td>
+            <td class="border_my"><%= @total*1.10.floor %></td>
+            <td class="border_my"><%= @order_total = @total*1.10.floor+800 %></td>
+        </tr>
+   </tbody>
+</table>
+
+<%= form_with model: Order.create, url: orders_path do |f| %>
+<%= f.hidden_field :total_price, :value => @order_total %>
+<%= f.hidden_field :pay_method, :value => @order.pay_method %>
+<%= f.hidden_field :postcode, :value => @order.postcode %>
+<%= f.hidden_field :address, :value => @order.address %>
+<%= f.hidden_field :name, :value => @order.name %>
+<%= f.submit "注文を確定する", class: "btn btn-success" %>
+<% end %>
+</div>

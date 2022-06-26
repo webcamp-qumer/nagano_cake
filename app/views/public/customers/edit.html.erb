@@ -1,0 +1,40 @@
+<div class="edit_main">
+  <h1 class="m__ttl_head">編集</h1>
+    <%= form_with model:@customer, url: public_customer_path(@customer),method: :patch  do |f| %>
+    <table>
+       <tr>
+         <th class="edit_customer_title">氏名</th>
+         <td class="edit_customer_body edit_customer_name"><%= f.text_field :last_name %></td>
+         <td><%= f.text_field :first_name %></td>
+       </tr>
+       <tr>
+         <th class="edit_customer_title">フリガナ</th>
+         <td class="edit_customer_body edit_customer_name"><%= f.text_field :last_name_kana %></td>
+         <td class="edit_customer_body"><%= f.text_field :first_name_kana %></td>
+       </tr>
+       <tr>
+         <th class="edit_customer_title">郵便番号</th>
+         <td class="edit_customer_body"><%= f.text_field :postcode %></td>
+       </tr>
+       <tr>
+         <th class="edit_customer_title">住所</th>
+         <td class="edit_customer_body"><%= f.text_field :address, {class: 'edit_customer_address'}%></td>
+       </tr>
+       <tr>
+         <th class="edit_customer_title">電話番号</th>
+         <td class="edit_customer_body"><%= f.text_field :phone_number %></td>
+       </tr>
+       <tr>
+         <th class="edit_customer_title">メールアドレス</th>
+         <td class="edit_customer_body"><%= f.text_field :email %></td>
+       </tr>
+       <tr>
+         <th></th>
+         <td class="edit_customer_button">
+           <%= f.submit "編集登録", {class: 'new_button'} %>
+         </td>
+       </tr>
+       
+     </table>
+    <% end %>
+</div>

@@ -1,0 +1,18 @@
+<h1>編集</h1>
+  <%= form_with model: @address,local:true do |f| %>
+     <div>
+       <%= f.label :宛名 %>
+       <%= f.text_field :name %>
+     </div>
+     <div>
+       <%= f.label :郵便番号 %>
+       <%= f.text_field :postcode %>
+     </div>
+     <div>
+       <%= f.label :配送先 %>
+       <%= f.text_area :address %>
+     </div>
+     <div>
+       <%= f.submit '変更保存' %>
+     </div>
+  <% end %>

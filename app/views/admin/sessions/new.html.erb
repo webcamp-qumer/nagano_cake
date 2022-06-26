@@ -1,0 +1,38 @@
+<div class='login-image'>
+  
+<div class='container'>
+  <div class='row'>
+    <div class="mx-auto">
+      <div class='well'>
+        <div class='admin_login'>
+          <h3><strong>管理者</strong>ログイン</h3>
+        </div>
+        
+              <%= form_with model: @admin, url: admin_session_path do |f| %>
+  
+              <div class="field">
+                <center>
+                <%= f.label :メールアドレス %> </br>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20" %>
+                </center>
+              </div>
+
+              <div class="field">
+                <center>
+                <%= f.label :パスワード %> </br>
+                <%= f.password_field :password, autocomplete: "current-password", size: "40x20" %>
+                </center>
+              </div>
+  <!--パスワードの変更不要のため削除-->
+              <div class="actions">
+                  <center><%= f.submit "ログイン", class: 'btn btm-sm btn-primary' %></center>
+              </div>
+              <% end %>
+
+              <%= render "admin/shared/links" %><!--フォルダ名の変更に伴いadmins=>admin に変更-->
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

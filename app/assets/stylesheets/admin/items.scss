@@ -1,0 +1,26 @@
+// Place all the styles related to the admin/items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.index {
+  background-color: #f1e2be
+}
+
+.topic {
+  background-color: #f1e2be
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item_show {
+  justify-content: center;
+}
+
+.nav-link {
+  color: black;
+}
+

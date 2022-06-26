@@ -1,0 +1,33 @@
+<div class="top_main">
+  <div class="top_page">
+    <h3>ようこそ、ながのCAKEへ！</h3>
+    <p>このサイトは、ケーキの販売のECサイトになります。</p>
+    <p>このサイトは、ケーキの販売の閲覧はできますが、</p>
+    <p>購入には会員登録が必要になります。</p>
+  </div>
+
+        <h2 class="m__ttl_head">新着商品</h2>
+<div class="top_new_items">
+          <% @items.each.with_index(1) do |items| %>
+          <div class="top_new_item">
+            <% if items.image.attached? %>
+              <%= image_tag items.image, size: "200x200" %><br>
+            <% else %>
+              <%= image_tag 'no-image', size: "200x200" %><br>
+            <% end %>
+
+              <%= link_to items.name, item_path(items.id) %><br>
+              <p>￥<%= items.price.to_s(:delimited) %></p>
+            
+
+              <%= link_to items.name, orders_path %><br>
+              <%= items.message %>
+
+
+          </div>
+          <% end %>
+</div>
+
+
+<%= link_to 'すべての商品を見る', items_path %>
+

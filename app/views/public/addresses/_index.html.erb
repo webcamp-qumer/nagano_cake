@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>宛名</th>
+      <th>郵便番号</th>
+      <th>配送先</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% addresses.each do |address| %>
+      <tr>
+        <td><%= address.name %></td>
+        <td><%= address.postcode %></td>
+        <td><%= address.address %></td>
+        <td><%= link_to '編集', edit_address_path(address.id) %></td>
+        <td><%= link_to '削除', address_path(address), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
