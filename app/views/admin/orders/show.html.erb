@@ -42,8 +42,7 @@
     <td><%= order_history.price %></td>
     <td><%= order_history.quantity %></td>
     <td><%= order_history.price*order_history.quantity %></td>
-        <% @total = @total + order_history.price*order_history.quantity %>
-        <!--左の@totalは変数-->
+        <% @total = @total + order_history.price*order_history.quantity %> <!--左の@totalは変数-->
     <% end %>
 
     <td>
@@ -63,8 +62,8 @@
     <%= @total.to_s(:delimited) %>円
   </p>
   <p>
-  　<string>送料</string>
-  　<%= @order.postage.to_s(:delimited) %>円
+    <string>送料</string>
+    <%= @order.postage.to_s(:delimited) %>円
   </p>
   <p>
   <string>請求合計金額</string>

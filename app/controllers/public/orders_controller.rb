@@ -33,7 +33,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.total_price = 1212
+    # @order.total_price
     @order.postage = 800
     @order.customer_id = current_customer.id
 
@@ -53,9 +53,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order_histories = OrderHistory.all
     @order = Order.find(params[:id])
     new_history = @order.order_histories.new
-    new_history.customer_id = current_user.id
+    new_history.order.customer_id = current_customer.id
     new_history.save
   end
 
@@ -69,7 +70,7 @@ class Public::OrdersController < ApplicationController
 
   private
 
-  def order_params
-    params.permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
-  end
+ def order_params
+    params.require(:order).permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
+ end
 end
