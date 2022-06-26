@@ -2,7 +2,8 @@ class Item < ApplicationRecord
   has_one_attached :image #画像を使うことを宣言
 
   belongs_to :genre
-  has_many   :cart_items
+  has_many   :cart_items,dependent: :destroy
+  has_many   :order_histories,dependent: :destroy
   
   #空だと保存することができない
   validates :name, presence: true
