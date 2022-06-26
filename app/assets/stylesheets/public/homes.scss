@@ -28,3 +28,30 @@
   margin: 20px 100px;
   text-align: center;
 }
+
+.about_image1{
+  width: 350px;
+  background-image: image-url('gahag-0009488078-1.jpg');
+  background-size: cover;
+  height: 30vh;
+}
+
+.about_image2{
+  width: 350px;
+  background-image: image-url('gahag-0114507215-1.jpg');
+  background-size: cover;
+  height: 30vh;
+}
+
+.about_image3{
+  width: 350px;
+  background-image: image-url('gahag-0004794703-1.jpg');
+  background-size: cover;
+  height: 30vh;
+}
+
+.image_posi{
+  display: flex;
+  margin: 50px 100px;
+  text-align: center;
+}

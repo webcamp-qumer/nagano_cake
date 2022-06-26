@@ -1,0 +1,103 @@
+[33m932edf8[m[33m ([m[1;36mHEAD -> [m[1;32mkiku[m[33m)[m HEAD@{0}: commit: [レイアウト]
+[33m8604983[m HEAD@{1}: commit: [顧客編集画面]
+[33mfc8f795[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m HEAD@{2}: merge origin/develop: Fast-forward
+[33m9c7c996[m HEAD@{3}: checkout: moving from develop to kiku
+[33mfc8f795[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m HEAD@{4}: pull origin develop: Fast-forward
+[33me9167be[m HEAD@{5}: checkout: moving from kiku to develop
+[33m9c7c996[m HEAD@{6}: checkout: moving from kiku to kiku
+[33m9c7c996[m HEAD@{7}: commit: [update]
+[33m42b6a63[m HEAD@{8}: commit: レイアウト修正
+[33me2cb470[m HEAD@{9}: commit: [top,aboutのレイアウト]
+[33me9167be[m HEAD@{10}: merge origin/develop: Fast-forward
+[33m7047db0[m HEAD@{11}: checkout: moving from develop to kiku
+[33me9167be[m HEAD@{12}: pull origin develop: Fast-forward
+[33mefd3c86[m HEAD@{13}: checkout: moving from kiku to develop
+[33m7047db0[m HEAD@{14}: commit: レイアウト
+[33mefd3c86[m HEAD@{15}: merge origin/develop: Fast-forward
+[33m4f3bdcb[m HEAD@{16}: checkout: moving from develop to kiku
+[33mefd3c86[m HEAD@{17}: pull origin develop: Fast-forward
+[33mc6585c9[m HEAD@{18}: checkout: moving from kiku to develop
+[33m4f3bdcb[m HEAD@{19}: checkout: moving from kiku to kiku
+[33m4f3bdcb[m HEAD@{20}: commit: [TOPの新着一覧]
+[33mc6585c9[m HEAD@{21}: merge origin/develop: Fast-forward
+[33m7d816e2[m HEAD@{22}: checkout: moving from develop to kiku
+[33mc6585c9[m HEAD@{23}: pull origin develop: Fast-forward
+[33mf7d96e6[m HEAD@{24}: checkout: moving from kiku to develop
+[33m7d816e2[m HEAD@{25}: commit: [配送先一覧]
+[33m23475b1[m HEAD@{26}: checkout: moving from main to kiku
+[33m3852d69[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{27}: checkout: moving from develop to main
+[33mf7d96e6[m HEAD@{28}: checkout: moving from kiku to develop
+[33m23475b1[m HEAD@{29}: commit: [編集一覧]
+[33md28f41d[m HEAD@{30}: commit: [db:null: falseの追加]
+[33m4b0caff[m HEAD@{31}: merge origin/develop: Merge made by the 'recursive' strategy.
+[33mb6289cb[m HEAD@{32}: checkout: moving from develop to kiku
+[33mf7d96e6[m HEAD@{33}: pull origin develop: Fast-forward
+[33ma8f0353[m HEAD@{34}: checkout: moving from kiku to develop
+[33mb6289cb[m HEAD@{35}: commit (merge): 1
+[33mecab61e[m HEAD@{36}: checkout: moving from develop to kiku
+[33ma8f0353[m HEAD@{37}: pull origin develop: Fast-forward
+[33m0f9659d[m HEAD@{38}: checkout: moving from kiku to develop
+[33mecab61e[m HEAD@{39}: commit: []
+[33ma75ac4e[m HEAD@{40}: checkout: moving from develop to kiku
+[33m0f9659d[m HEAD@{41}: checkout: moving from kiku to develop
+[33ma75ac4e[m HEAD@{42}: commit: [update]
+[33me70fdec[m HEAD@{43}: commit: [退会、配送先]
+[33m90760d8[m HEAD@{44}: commit: [退会機能の追加]
+[33me357361[m HEAD@{45}: commit: [退会機能の追加]
+[33m0020cc0[m HEAD@{46}: checkout: moving from develop to kiku
+[33m0f9659d[m HEAD@{47}: checkout: moving from kiku to develop
+[33m0020cc0[m HEAD@{48}: commit: [ルーティングの反映]
+[33m38db8bf[m HEAD@{49}: checkout: moving from develop to kiku
+[33m0f9659d[m HEAD@{50}: checkout: moving from kiku to develop
+[33m38db8bf[m HEAD@{51}: commit (merge): [update]
+[33mc31e9c8[m HEAD@{52}: checkout: moving from develop to kiku
+[33m0f9659d[m HEAD@{53}: pull origin develop: Fast-forward
+[33m145e34a[m HEAD@{54}: checkout: moving from kiku to develop
+[33mc31e9c8[m HEAD@{55}: commit: [コンフリクト解決]
+[33m145e34a[m HEAD@{56}: checkout: moving from develop to kiku
+[33m145e34a[m HEAD@{57}: checkout: moving from kiku to develop
+[33m145e34a[m HEAD@{58}: checkout: moving from develop to kiku
+[33m145e34a[m HEAD@{59}: checkout: moving from kiku to develop
+[33m145e34a[m HEAD@{60}: merge origin/develop: Fast-forward
+[33m40883d1[m HEAD@{61}: checkout: moving from develop to kiku
+[33m145e34a[m HEAD@{62}: pull origin develop: Fast-forward
+[33m9850cde[m HEAD@{63}: checkout: moving from kiku to develop
+[33m40883d1[m HEAD@{64}: commit (merge): [update]
+[33m379301f[m HEAD@{65}: checkout: moving from develop to kiku
+[33m9850cde[m HEAD@{66}: pull origin develop: Fast-forward
+[33m9025235[m HEAD@{67}: checkout: moving from kiku to develop
+[33m379301f[m HEAD@{68}: checkout: moving from develop to kiku
+[33m9025235[m HEAD@{69}: checkout: moving from kiku to develop
+[33m379301f[m HEAD@{70}: checkout: moving from develop to kiku
+[33m9025235[m HEAD@{71}: checkout: moving from kiku to develop
+[33m379301f[m HEAD@{72}: checkout: moving from develop to kiku
+[33m9025235[m HEAD@{73}: checkout: moving from kiku to develop
+[33m379301f[m HEAD@{74}: commit: [マイページ,編集]
+[33mb12abe6[m HEAD@{75}: commit: [マイページ,編集]
+[33m3839172[m HEAD@{76}: commit: [マイページ,編集]
+[33m3376e5c[m HEAD@{77}: commit: [マイページ、へんしゅう]
+[33m71a0ea8[m HEAD@{78}: commit: [新規登録、マイページの追加]
+[33m017c018[m HEAD@{79}: commit: [カラムの追加]
+[33m9025235[m HEAD@{80}: merge origin/develop: Fast-forward
+[33m53ce911[m HEAD@{81}: checkout: moving from develop to kiku
+[33m9025235[m HEAD@{82}: pull origin develop: Fast-forward
+[33m93039d6[m HEAD@{83}: checkout: moving from kiku to develop
+[33m53ce911[m HEAD@{84}: commit: [AddColumn]
+[33m93039d6[m HEAD@{85}: merge origin/develop: Fast-forward
+[33md0fdef5[m HEAD@{86}: checkout: moving from develop to kiku
+[33m93039d6[m HEAD@{87}: pull origin develop: Fast-forward
+[33md0fdef5[m HEAD@{88}: checkout: moving from kiku to develop
+[33md0fdef5[m HEAD@{89}: pull origin develop: Fast-forward
+[33m0a6ebd3[m HEAD@{90}: checkout: moving from develop to kiku
+[33md0fdef5[m HEAD@{91}: pull origin develop: Fast-forward
+[33m0a6ebd3[m HEAD@{92}: checkout: moving from kiku to develop
+[33m0a6ebd3[m HEAD@{93}: checkout: moving from develop to kiku
+[33m0a6ebd3[m HEAD@{94}: checkout: moving from taishi to develop
+[33ma1e62b0[m[33m ([m[1;31morigin/taishi[m[33m, [m[1;32mtaishi[m[33m)[m HEAD@{95}: checkout: moving from develop to taishi
+[33m0a6ebd3[m HEAD@{96}: checkout: moving from taishi to develop
+[33ma1e62b0[m[33m ([m[1;31morigin/taishi[m[33m, [m[1;32mtaishi[m[33m)[m HEAD@{97}: commit: add views taishi
+[33m0a6ebd3[m HEAD@{98}: checkout: moving from develop to taishi
+[33m0a6ebd3[m HEAD@{99}: pull origin develop: Fast-forward
+[33m0e23976[m HEAD@{100}: pull origin develop: Fast-forward
+[33m3852d69[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{101}: checkout: moving from main to develop
+[33m3852d69[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{102}: clone: from github.com:webcamp-qumer/nagano_cake.git

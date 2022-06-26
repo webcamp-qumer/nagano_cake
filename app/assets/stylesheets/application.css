@@ -25,6 +25,10 @@
    color: black;
  }
  
+ li{
+   list-style: none;
+ }
+ 
 .title {
   margin: 20px;
   padding: 20px;

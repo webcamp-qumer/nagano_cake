@@ -1,9 +1,22 @@
-<%= form_with model: address,local:true do |f| %>
-  宛名
-  <%= f.text_field :name %><br>
-  郵便番号
-  <%= f.text_field :postcode %><br>
-  配送先
-  <%= f.text_area :address %><br>
-<%= f.submit '新規登録' %>
-<% end %>
+<table>
+  <%= form_with model: address,local:true do |f| %>
+  <tr>
+    <th class="new_address_titel">郵便番号（ハイフンなし）</th>
+    <td><%= f.text_field :postcode %></td>
+  </tr>
+  <tr>
+    <th class="new_address_titel">住所</th>
+    <td><%= f.text_field :address, {class: 'edit_customer_address'} %></td>
+  </tr>
+  <tr>
+    <th class="new_address_titel">宛名</th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <th class="new_address_titel"></th>
+    <td><%= f.submit '新規登録', class: 'btn btn-success font-weight-bold new_button' %></td>
+  </tr>
+  <% end %>
+</table>
+
+
