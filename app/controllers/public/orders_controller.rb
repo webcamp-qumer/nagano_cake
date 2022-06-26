@@ -42,7 +42,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.each do |cart_item|
         order_history = OrderHistory.new
         order_history.price_non_tax = cart_item.item.price_non_tax
-        order_history.status
+
         order_history.quantity = cart_item.quantity
         order_history.order_id = @order.id
         order_history.item_id = cart_item.item_id
@@ -54,9 +54,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order_histories = OrderHistory.all
     @order = Order.find(params[:id])
     new_history = @order.order_histories.new
-    new_history.customer_id = current_customer.id
+    new_history.order.customer_id = current_customer.id
     new_history.save
   end
 
@@ -70,7 +71,7 @@ class Public::OrdersController < ApplicationController
 
   private
 
-  def order_params
+ def order_params
     params.require(:order).permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
-  end
+ end
 end
