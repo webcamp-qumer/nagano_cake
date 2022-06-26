@@ -5,17 +5,18 @@
 <div class='container'>
   <div class='row'>
     <div class='col-10'>
-      <p><string>購入者</string><%= @order.customer.name %></p>
+      <p><string>購入者</string><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
       <p><string>注文日</string><%= @order.created_at %></p>
       <p><string>配送先</string>
         <%= @order.postcode%><%= @order.address %>
         <%= @order.name %>
       </p>
       <p><string>支払い方法</string>
-        <%= @order.pay_method </p>
+        <%= @order.pay_method %></p>
       <p><string>注文ステータス</string>
-         <% form_with model:@order, url:admin_order_path do |f| %>
-         <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
+         <% form_with model: @order, url: admin_order_path do |f| %>
+         <%= f.select :status, options_for_select(Order.statuses) %>
+        
          <!--select=プルダウンメニューの表示-->
          <%= f.submit '更新', class: 'btn btn-success font-weight-bold' %>
          <% end %>
@@ -39,16 +40,17 @@
   <tobody>
     <% @order_histories.each do |order_history| %>
     <td><%= order_history.item.name %></td>
-    <td><%= order_history.price %></td>
+    <td><%= order_history.price_non_tax*1.10.floor %></td>
     <td><%= order_history.quantity %></td>
-    <td><%= order_history.price*order_history.quantity %></td>
-        <% @total = @total + order_history.price*order_history.quantity %> <!--左の@totalは変数-->
+    <td><%= order_history.price_non_tax*1.10.floor*order_history.quantity %></td>
+        <% @total = @total + order_history.price_non_tax*1.10.floor*order_history.quantity %> <!--左の@totalは変数-->
     <% end %>
 
     <td>
-        <% form_with model:@order_history, url:admin_order_history_path(order_history) do |f| %>
-        <%= f.select :status, options_for_select_from_enum(Rating, :status) %>
+        <% form_with model: @order_histories, url: order_history_path(@order.id) do |f| %>
+        <%= f.select :status, options_for_select(OrderHistory.statuses) %>
         <!--select=プルダウンメニューの表示-->
+        
         <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
        <% end %>
     </td>
