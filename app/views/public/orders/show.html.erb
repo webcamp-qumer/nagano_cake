@@ -9,20 +9,16 @@
     </tr>
   </thead>
   <tbody>
-     <%# @order_histories.each do |order_history| %>
+     <% @order_histories.each do |order_history| %>
      <tr>
-       <td><%= @order.created_at %></td>
-       <td><%= @order.postcode %><%= @order.address %><%= @order.name %></td>
-       <td><%= @order.pay_method %></td>
-       <td><%= @order.status %></td>
+       <td><%= order_history.created_at %></td>
+       <td><%= order_history.order.postcode %><%= order_history.order.address %><%= order_history.order.name %></td>
+       <td><%= order_history.order.pay_method %></td>
+       <td><%= order_history.order.status %></td>
      </tr>
+     <% end %>
   </tbody>
 </table>
-     <%# end %>
-<h2>請求情報</h2>
-<table>
-  <!---->
-
 <h2>注文内容</h2>
 <table>
   <tr>
@@ -40,5 +36,17 @@
         <td><%= hist.item.price_non_tax*hist.quantity %></td>
       <% end %>
     <% end %>
+  </tr>
+<h2>請求情報</h2>
+<table>
+  <tr>
+    <th>合計金額</th>
+    <th>配送料</th>
+    <th><span>ご請求額</span></th>
+  </tr>
+  <tr>
+    <th><%= @order.total_price %></th>
+    <th><%= @order.postage %></th>
+    <th><%= @order.total_price + @order.postage %></th>
   </tr>
 </table>

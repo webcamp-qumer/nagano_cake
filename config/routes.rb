@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+
   #顧客側のルート
   namespace :public do
     resources :customers
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
     resources :cart_items, only: [:create, :index, :update, :destroy]
     end
-
+    
   #作ったコントローラーの場所を記述
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: { #passwordの変更、sign_up機能の削除
     sessions: "admin/sessions" #管理者はログイン機能のみ
