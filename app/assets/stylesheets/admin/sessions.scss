@@ -9,7 +9,6 @@
   margin: 40px;
   border: 1px solid;
   background-color: white;
-  text-align:  center;
 }
 
 .admin_login {
@@ -19,5 +18,8 @@
 }
 
 .field {
+  display: block;
+  justify-content: center;
+  text-align: center;
   margin-bottom: 40px;
 }
