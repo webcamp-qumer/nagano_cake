@@ -10,11 +10,15 @@
 <div class="top_new_items">
    <% @items.each.with_index(1) do |items| %>
     <div class="top_new_item">
+      
+      <%= link_to items_path do %>
       <% if items.image.attached? %>
        <%= image_tag items.image, size: "200x200" %><br>
       <% else %>
          <%= image_tag 'no-image', size: "200x200" %><br>
-       <% end %>
+      <% end %>
+      <% end %>
+
        <%= link_to items.name, item_path(items.id) %><br>
        <p>￥<%= items.price.to_s(:delimited) %></p>
        <p><%= items.message %></p>
