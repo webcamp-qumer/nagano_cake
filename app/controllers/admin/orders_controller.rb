@@ -1,5 +1,8 @@
 class Admin::OrdersController < ApplicationController
   
+    before_action :authenticate_admin!
+
+  
   def show 
     @order = Order.find(params[:id])
     @order_histories = OrderHistory.all
@@ -7,18 +10,24 @@ class Admin::OrdersController < ApplicationController
   end
   
   def update
+    
     @order = Order.find(params[:id])
-    if @order.update(order_params)
-      redirect_to admin_order_path(order)
-    else
-      render 'show'
+    @order.update(order_params)
+    @order_histories = @order.order_histories
+
+    if @order.status == "入金確認"
+      @order_histories.each do |order_history|
+        order_history.status = "製作待ち"
+        order_history.save
+      end
+      
     end
-  end
+    redirect_to admin_order_path(@order)
+  end 
   
   private
-  
+
   def order_params
-    params.require(:order).permit(:status)
-  end
-  
+    params.require(:order).permit(:status) 
+  end 
 end
