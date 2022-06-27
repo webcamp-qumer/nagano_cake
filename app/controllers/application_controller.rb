@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+   before_action :authenticate_customer!, except: [:top]
+
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :admin
       new_admin_session_path
