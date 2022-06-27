@@ -19,15 +19,16 @@
    line-height: 50px;
  }
  
- li {
-   list-style: none;
-   text-decoration: underline;
+ .header {
    color: black;
  }
  
- li{
+ li {
    list-style: none;
+   text-decoration: underline;
  }
+ 
+
  
 .title {
   margin: 20px;
