@@ -58,6 +58,7 @@
     </tr>
    </table>  
    <p><%= f.submit '変更を保存', class: 'btn btn-success font-weight-bold' %></p>
+   <th><%= link_to '削除する', admin_item_path(@item), method: :delete, class: 'btn btn-info font-weight-bold' %></th>
    <% end %>
   </div>
  </div>
