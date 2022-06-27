@@ -14,9 +14,8 @@
       <p><string>支払い方法</string>
         <%= @order.pay_method %></p>
       <p><string>注文ステータス</string>
-         <% form_with model: @order, url: admin_order_path do |f| %>
+         <%= form_with model: @order, url: admin_order_path, local: true do |f| %>
          <%= f.select :status, options_for_select(Order.statuses) %>
-        
          <!--select=プルダウンメニューの表示-->
          <%= f.submit '更新', class: 'btn btn-success font-weight-bold' %>
          <% end %>
@@ -45,12 +44,10 @@
     <td><%= order_history.price_non_tax*1.10.floor*order_history.quantity %></td>
         <% @total = @total + order_history.price_non_tax*1.10.floor*order_history.quantity %> <!--左の@totalは変数-->
     <% end %>
-
     <td>
-        <% form_with model: @order_histories, url: order_history_path(@order.id) do |f| %>
+        <%= form_with model: @order_histories, url: order_history_path(@order.id) do |f| %>
         <%= f.select :status, options_for_select(OrderHistory.statuses) %>
         <!--select=プルダウンメニューの表示-->
-        
         <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
        <% end %>
     </td>
