@@ -6,5 +6,6 @@ class Admin::OrdersController < ApplicationController
     @total = 0 #最初に０を代入
   end
 
-
+  def updated
+  end
 end

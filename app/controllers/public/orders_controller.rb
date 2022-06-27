@@ -46,8 +46,8 @@ class Public::OrdersController < ApplicationController
         order_history.quantity = cart_item.quantity
         order_history.order_id = @order.id
         order_history.item_id = cart_item.item_id
-        order_history.status = 0
-        order_history.save!
+        order_history.status
+        order_history.save
         cart_item.destroy
       end
       redirect_to thanks_path
