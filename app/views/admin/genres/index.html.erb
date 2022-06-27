@@ -12,18 +12,20 @@
         <%= f.text_field :name %>
         <%= f.submit '新規登録', class: 'btn btn-outline-danger font-weight-bold' %>
         <% end %>
-
     </div>
   </div>
 </div>
 
  <div class='container'>
-   <div class='row'>
+    <div class='row'>
      <div class='mx-auto col-8'>
-     <table  class='table table-hover table-inverse'>
+      <table  class='table table-hover table-inverse'>
+        
 　    <thead class='topic'>
         <tr>
-          <th align="center"><big>ジャンル</big></th>
+          <th align="center">
+            <big>ジャンル</big>
+          </th>
           <th></th>
           <th></th>
         </tr>
@@ -32,14 +34,14 @@
       <tobody>
         <% @genres.each do |genre| %>
         <tr>
-          <th><big><%= genre.name %></big></th>
+          <th><%= genre.name %></th>
           <th><%= link_to '編集する', edit_admin_genre_path(genre), class: 'btn btn-success font-weight-bold' %></th>
           <th><%= link_to '削除する', admin_genre_path(genre), method: :delete, class: 'btn btn-info font-weight-bold' %></th>
         </tr>
         <% end %>
-        
       </tobody>
-     </table>
+      
+      </table>
      </div>
-   </div>
+    </div>
  </div>
