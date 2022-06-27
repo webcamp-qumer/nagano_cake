@@ -16,18 +16,20 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <header><%= render 'layouts/header' %></header>
 
     <main>
     <%= yield %>
     </main>
+    
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <footer>
+      <center>住所：大阪府大阪市中央区難波4丁目7-14 難波フロントビル 4階 / 営業時間 11:00〜18:00</center>
+    </footer>
 
-
-    <%= render 'layouts/footer' %>
 
   </body>
 </html>

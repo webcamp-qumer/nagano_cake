@@ -25,9 +25,10 @@
   </div>
 </div>
 
-<div>
-  <table>
-  <thead>
+<div class='row'>
+  <div class='col-8 mx-auto'>
+  <table class='table table-hover table-inverse'>
+  <thead class='topic'>
     <tr>
       <th>商品名</th>
       <th>単価（税込）</th>
@@ -37,16 +38,17 @@
     </tr>
   </thead>
 
-  <tobody>
+  <tbody>
     <% @order_histories.each do |order_history| %>
+    <tr>
     <td><%= order_history.item.name %></td>
     <td><%= order_history.price_non_tax*1.10.floor %></td>
     <td><%= order_history.quantity %></td>
     <td><%= order_history.price_non_tax*1.10.floor*order_history.quantity %></td>
         <% @total = @total + order_history.price_non_tax*1.10.floor*order_history.quantity %> <!--左の@totalは変数-->
-    <% end %>
 
     <td>
+<<<<<<< HEAD
         <%= form_with model: @order_histories, url: order_history_path(order_history),local: true do |f| %>
         <%= f.select :status, options_for_select(OrderHistory.statuses) %>
         <!--select=プルダウンメニューの表示-->
@@ -54,20 +56,39 @@
         <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
        <% end %>
   </tobody>
+=======
+        <%= form_with model: order_history, url: admin_order_history_path(order_history), local: true do |f| %>
+        <%= f.select :status, OrderHistory.statuses.keys %>
+        <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
+       <% end %>
+    </td>
+    </tr>
+    <% end %>
+  </tbody>
+>>>>>>> origin/develop
+  </table>
+  </div>
+  </div>
+<div>
+
+<div class='row'>
+  <div class='col-6 mx-auto'>
+  <table class='table table-hover table-inverse'>
+    <thead class='topic'>
+    <tr>
+      <th>商品合計</th>
+      <th>送料</th>
+      <th>請求合計金額</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @total.to_s(:delimited) %>円</td>
+      <td><%= @order.postage.to_s(:delimited) %>円</td>
+      <td><%= @total + @order.postage %>円</td>
+    </tr>
+  </tbody>
   </table>
 </div>
-
-<div>
-  <p>
-    <string>商品合計</string>
-    <%= @total.to_s(:delimited) %>円
-  </p>
-  <p>
-    <string>送料</string>
-    <%= @order.postage.to_s(:delimited) %>円
-  </p>
-  <p>
-  <string>請求合計金額</string>
-    <%= @order.total_price.to_s(:delimited) %>円
-  </p>
+</div>
 </div>
