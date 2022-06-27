@@ -54,3 +54,8 @@ footer {
    margin: 0;
    line-height: 50px;
  }
+ 
+ main{
+  margin: 0 100px;
+  background-color: #fff;
+}
