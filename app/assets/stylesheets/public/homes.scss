@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) heref: https://sass-lang.com/
 
-//topページ
-.top_main{
-  margin: 20px 100px;
+.main-image{
+  background-image: image-url('46234_main.jpg');
+  background-size: cover;
+  height: 30vh;
 }
+
+//topページ
 
 .top_page{
   text-align: center;
@@ -55,3 +58,4 @@
   margin: 50px 100px;
   text-align: center;
 }
+
