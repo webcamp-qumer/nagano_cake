@@ -46,6 +46,10 @@ td {
   padding: 5px;
 }
 
+.btn {
+  margin: 5px;
+}
+
 footer {
   height: 50px;
 }
@@ -59,4 +63,12 @@ footer {
  main{
   margin: 0 100px;
   background-color: #fff;
+}
+
+.a {
+  color: black;
+}
+
+ul {
+  list-style:none;
 }
