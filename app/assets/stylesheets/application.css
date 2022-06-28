@@ -63,3 +63,20 @@ footer {
   margin: 0 100px;
   background-color: #fff;
 }
+
+.link_color{
+  color: black;
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: yellow;
+}
+
+.header_title{
+	text-align:center;
+	line-height:0.95em;
+	letter-spacing: 0.05em;
+	color: transparent;
+	-webkit-text-stroke: 0.03em rgba(0,0,0,1);
+}
