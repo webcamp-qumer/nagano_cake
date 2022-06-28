@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2022_06_25_164004) do
 
   create_table "order_histories", force: :cascade do |t|
     t.integer "price_non_tax", null: false
-    t.integer "status", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity", null: false
