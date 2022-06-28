@@ -58,8 +58,8 @@ class Public::OrdersController < ApplicationController
     @order_histories = OrderHistory.all
     @order = Order.find(params[:id])
     @orders = @order.order_histories
-    new_history = @order.order_histories.new
-    new_history.order.customer_id = current_customer.id
+    order_history = @order.order_histories.new
+    order_history.order.customer_id = current_customer.id
     new_history.save
   end
 

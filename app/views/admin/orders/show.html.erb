@@ -48,15 +48,6 @@
         <% @total = @total + order_history.price_non_tax*1.10.floor*order_history.quantity %> <!--左の@totalは変数-->
 
     <td>
-<<<<<<< HEAD
-        <%= form_with model: @order_histories, url: order_history_path(order_history),local: true do |f| %>
-        <%= f.select :status, options_for_select(OrderHistory.statuses) %>
-        <!--select=プルダウンメニューの表示-->
-        </td>
-        <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
-       <% end %>
-  </tobody>
-=======
         <%= form_with model: order_history, url: admin_order_history_path(order_history), local: true do |f| %>
         <%= f.select :status, OrderHistory.statuses.keys %>
         <%= f.submit '更新', class: 'btn btn-success font-weight-bold'%>
@@ -65,7 +56,6 @@
     </tr>
     <% end %>
   </tbody>
->>>>>>> origin/develop
   </table>
   </div>
   </div>
