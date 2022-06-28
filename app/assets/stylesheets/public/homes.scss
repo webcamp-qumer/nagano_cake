@@ -1,7 +1,7 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) heref: https://sass-lang.com/
-
+//全ページの背景画像
 .main-image{
   background-image: image-url('46234_main.jpg');
   background-size: cover;
@@ -9,8 +9,12 @@
 }
 
 //topページ
+.top_main{
+   height: 100%;
+}
 
 .top_page{
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -28,7 +32,7 @@
 
 //Aboutページ
 .about_main{
-  margin: 20px 100px;
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -36,7 +40,8 @@
   width: 350px;
   background-image: image-url('gahag-0009488078-1.jpg');
   background-size: cover;
-  height: 30vh;
+  height: 30vh
+ 
 }
 
 .about_image2{
@@ -55,7 +60,7 @@
 
 .image_posi{
   display: flex;
-  margin: 50px 100px;
+  padding: 50px 0;
   text-align: center;
 }
 
