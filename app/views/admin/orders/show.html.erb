@@ -4,27 +4,43 @@
 
 <div class='container'>
   <div class='row'>
-    <div class='col-10'>
-      <p><string>購入者</string><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
-      <p><string>注文日</string><%= @order.created_at %></p>
-      <p><string>配送先</string>
-        <%= @order.postcode%><%= @order.address %>
-        <%= @order.name %>
-      </p>
-      <p><string>支払い方法</string>
-        <%= @order.pay_method %></p>
-      <p><string>注文ステータス</string>
-         <%= form_with model: @order, url: admin_order_path do |f| %>
-         <%= f.select :status, options_for_select(Order.statuses) %>
-
-         <!--select=プルダウンメニューの表示-->
-         <%= f.submit '更新', class: 'btn btn-success font-weight-bold' %>
-         <% end %>
-      </p>
+    <div class='order col-10 mx-auto'>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>購入者</th>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>支払い方法</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+          <td><%= l @order.created_at %></td>
+          <td>
+            <%= "〒" + @order.postcode%></br>
+            <%= @order.address %> </br>
+            <%= @order.name %>
+          </td>
+          <td>
+            <%= @order.pay_method_i18n %>
+          </td>
+          <td>
+            <%= form_with model: @order, url: admin_order_path do |f| %>
+            <%= f.select :status, Order.statuses.keys, class: "order_status"  %>
+            <%= f.submit '更新', class: 'btn btn-success font-weight-bold' %>
+            <% end %>
+          </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-
+<p></p>
+<p></p>
 <div class='row'>
   <div class='col-8 mx-auto'>
   <table class='table table-hover table-inverse'>

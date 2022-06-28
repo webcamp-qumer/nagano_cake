@@ -50,6 +50,7 @@
             <th  class="border_my">個数</th>
             <th  class="border_my order_item_total">小計</th>
           </tr>
+          
           <% @order.order_histories.includes(:item).each do |order_history| %>
           <tr>
              <td class="border_my"><%= order_history.item.name %></td>
