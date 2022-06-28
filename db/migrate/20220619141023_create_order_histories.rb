@@ -1,12 +1,9 @@
 class CreateOrderHistories < ActiveRecord::Migration[6.1]
   def change
     create_table :order_histories do |t|
-      t.string   :name,           null: false
-      t.string   :postcode,       null: false
-      t.string   :address,        null: false
-      t.integer  :total_price,    null: false
+
       t.integer  :price_non_tax,  null: false
-      t.integer  :status,         null: false
+      t.integer  :status,         null: false, default: 0
 
       t.timestamps
     end
