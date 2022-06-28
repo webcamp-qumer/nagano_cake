@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
   
   def show 
     @order = Order.find(params[:id])
-    @order_histories = OrderHistory.all
+    @order_histories = @order.order_histories
     @total = 0 #最初に０を代入
   end
   
@@ -20,7 +20,6 @@ class Admin::OrdersController < ApplicationController
         order_history.status = "製作待ち"
         order_history.save
       end
-      
     end
     redirect_to admin_order_path(@order)
   end 
