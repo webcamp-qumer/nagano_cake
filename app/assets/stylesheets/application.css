@@ -19,6 +19,14 @@
    line-height: 50px;
  }
  
+.navbar {
+   background-color: #fffac2;
+ }
+ 
+ .link_color {
+   color: black;
+ }
+ 
  li {
    list-style: none;
    text-decoration: underline;
