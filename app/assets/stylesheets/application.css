@@ -22,9 +22,8 @@
  li {
    list-style: none;
    text-decoration: underline;
+   display: inline;
  }
- 
-
  
 .title {
   margin: 20px;
@@ -36,6 +35,10 @@
 .genre_form {
   display: flex;
   justify-content: center;
+}
+
+.customer_edit {
+  padding: 5px;
 }
 
 td {
