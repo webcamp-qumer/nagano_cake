@@ -22,11 +22,7 @@
  li {
    list-style: none;
    text-decoration: underline;
-   color: black;
- }
- 
- li{
-   list-style: none;
+   display: inline;
  }
  
 .title {
@@ -41,8 +37,16 @@
   justify-content: center;
 }
 
+.customer_edit {
+  padding: 5px;
+}
+
 td {
   padding: 5px;
+}
+
+.btn {
+  margin: 5px;
 }
 
 footer {
