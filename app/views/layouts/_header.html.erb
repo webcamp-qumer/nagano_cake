@@ -1,7 +1,6 @@
 <header>
   <nav class="navbar navbar-light">
     <div class="container">
-
         <% if customer_signed_in? %>
           <h3><i class="fa fa-birthday-cake"></i><%= link_to  root_path,class: 'link_color header_title' do %>Nagabo Cake<% end %></h3>
           <li>ようこそ<%= current_customer.last_name %>さん</li>
