@@ -19,10 +19,6 @@
    line-height: 50px;
  }
  
- .header {
-   color: black;
- }
- 
  li {
    list-style: none;
    text-decoration: underline;
@@ -63,12 +59,4 @@ footer {
  main{
   margin: 0 100px;
   background-color: #fff;
-}
-
-.a {
-  color: black;
-}
-
-ul {
-  list-style:none;
 }
