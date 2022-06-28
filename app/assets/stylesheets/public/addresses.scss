@@ -1,3 +1,35 @@
 // Place all the styles related to the public/addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//配送先一覧
+.addresses_index{
+  width: 100%;
+  
+}
+
+.edit_post_code{
+  width: 150px;
+  
+}
+
+.edit_address{
+  width: 400px;
+}
+
+.eidt_name{
+  width: 100px;
+}
+
+.edit_address_page{
+  padding: 40px;
+}
+
+//配送先新規登録
+.new_address_titel{
+  padding: 10px 0;
+}
+
+a.text-white{
+  color: white;
+}

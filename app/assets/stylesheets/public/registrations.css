@@ -20,7 +20,7 @@
 }
 
 .m__ttl_head{
-    margin: 40px 0;
+    padding: 40px 0;
     font-weight: 700;
     font-size: 1.75rem;
     text-align: center;
@@ -32,7 +32,6 @@ input#customer_address.address_text{
 
  input.new_button{
   width: 200px;
-  background-color: #a6ce39;
 }
 
 .email_label{
@@ -45,4 +44,12 @@ input#customer_address.address_text{
 
 .log_in_button{
   margin-left: 230px;
+}
+
+input#customer_email.log_in{
+  width: 300px
+}
+
+input#customer_password.log_in{
+  width: 300px
 }

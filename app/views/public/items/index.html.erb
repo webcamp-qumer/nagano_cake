@@ -1,12 +1,25 @@
-<h2>商品一覧</h2>
-<h4>全<%= @items.count %>件</h4>
-<% @items.each do |item| %>
-<% if item.image.attached? %>
-        <%= image_tag item.image, size: "100x100" %>
-      <% else %>
-        <%= image_tag 'no-image', size: "100x100" %>
+<div class="items_main">
+  <div class="row">
+    <h2 class="m__ttl_head">商品一覧</h2>
+    <h5 class="items_title">(全<%= @items.count %>件)</h5>
+  </div>
+  
+ 
+  <div class="items_index">
+     <% @items.each do |item| %>
+    <div class="item">
+      <%= link_to item_path(item.id) do %>
+      <% if item.image.attached? %>
+          <%= image_tag item.image, size: "150x150" %><br>
+        <% else %>
+          <%= image_tag 'no-image', size: "150x150" %><br>
+        <% end %>
       <% end %>
-
-  <%= link_to item.name, item_path(item) %><br>
-      <p>￥<%= item.price.to_s(:delimited) %></p>
-<% end %>
+      <%= link_to item.name, item_path(item) %>
+        <p>￥<%= item.price.to_s(:delimited) %></p>
+    </div>
+    <% end %>
+  </div>
+  
+</div> 
+  

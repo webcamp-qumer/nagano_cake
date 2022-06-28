@@ -1,7 +1,13 @@
 // Place all the styles related to the admin/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.order {
+  padding: 0;
+  margin: 0;
+  border: double 5px #4ec4d3;
+}
+
 .time-link {
+  text-decoration: underline;
   color: black;
-  
 }

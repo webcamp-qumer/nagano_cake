@@ -46,6 +46,7 @@ class Public::OrdersController < ApplicationController
         order_history.quantity = cart_item.quantity
         order_history.order_id = @order.id
         order_history.item_id = cart_item.item_id
+
         order_history.save
         cart_item.destroy
       end
@@ -56,6 +57,7 @@ class Public::OrdersController < ApplicationController
   def show
     @order_histories = OrderHistory.all
     @order = Order.find(params[:id])
+    @orders = @order.order_histories
     new_history = @order.order_histories.new
     new_history.order.customer_id = current_customer.id
     new_history.save
@@ -71,7 +73,9 @@ class Public::OrdersController < ApplicationController
 
   private
 
+
  def order_params
     params.require(:order).permit(:name, :postcode, :address, :postage , :total_price, :pay_method)
  end
+
 end

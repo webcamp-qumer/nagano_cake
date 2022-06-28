@@ -36,6 +36,12 @@ class Admin::ItemsController < ApplicationController
   @item.update(item_params) #ストロングパラメータ！！
   redirect_to admin_item_path(@item)
  end 
+ 
+ def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to admin_items_path
+ end 
 
 private
 

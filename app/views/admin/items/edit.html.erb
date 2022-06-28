@@ -13,8 +13,8 @@
     
    <table>
     <tr>
-     <th>
-        <span>商品画像</span>
+     <th weight="60">
+        <span weight="60">商品画像</span>
      </th>
      <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
@@ -34,7 +34,7 @@
     </tr>
 
      <tr>
-     <th>
+     <th >
       <span>ジャンル</span>
      </th>
       <td><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></td>
@@ -57,7 +57,9 @@
      </td>
     </tr>
    </table>  
-   <p><%= f.submit '変更を保存', class: 'btn btn-success font-weight-bold' %></p>
+   <center><%= f.submit '変更を保存', class: 'btn btn-success font-weight-bold' %>
+      <%= link_to '削除する', admin_item_path(@item), method: :delete, class: 'btn btn-info font-weight-bold' %>
+   </center>
    <% end %>
   </div>
  </div>

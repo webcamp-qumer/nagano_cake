@@ -1,0 +1,65 @@
+
+<div class="order_show_main">
+  <h2 class="m__ttl_head">注文履歴詳細</h2>
+    <div class="order_show_posi">
+       <div class="order_show">
+        <table class='border_my'>
+          <thead class="border_my">
+        <h4>注文情報</h4>
+            <tr>
+              <th class="border_my">注文日</th>
+              <th class="border_my">配送先</th>
+              <th class="border_my">支払方法</th>
+              <th class="border_my">ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr>
+               <td class="border_my"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+               <td class="border_my"><%= @order.postcode %><%= @order.address %><%= @order.name %></td>
+               <td class="border_my"><%= @order.pay_method %></td>
+               <td class="border_my"><%= @order.status %></td>
+             </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class"order_show">
+        <h4>請求情報</h4>
+        <table>
+          <tr>
+            <th class="border_my">合計金額</th>
+            <th class="border_my">配送料</th>
+            <th class="border_my"><span>ご請求額</span></th>
+          </tr>
+          <tr>
+            <th class="border_my"><%= @order.total_price %></th>
+            <th class="border_my"><%= @order.postage %></th>
+            <th class="border_my"><%= @order.total_price + @order.postage %></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+        
+    <div class="order_show_item">
+      <h4>注文内容</h4>
+        <table>
+          <tr>
+            <th  class="border_my order_item">商品</th>
+            <th  class="border_my">単価（税込）</th>
+            <th  class="border_my">個数</th>
+            <th  class="border_my order_item_total">小計</th>
+          </tr>
+          
+          <% @order.order_histories.includes(:item).each do |order_history| %>
+          <tr>
+             <td class="border_my"><%= order_history.item.name %></td>
+             <td class="border_my"><%= order_history.item.price_non_tax %></td>
+             <td class="border_my"><%= order_history.quantity %></td>
+             <td class="border_my"><%= order_history.item.price_non_tax*order_history.quantity %></td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+</div>
+  
