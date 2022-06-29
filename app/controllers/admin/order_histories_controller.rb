@@ -10,7 +10,12 @@ class Admin::OrderHistoriesController < ApplicationController
     
   if @order_history.status == "製作中"
     @order_history.order.update(status: "製作中")
+    
+  elsif 
+    @order_history.status.all == "製作完了"
+    @order_history.order.update(status: "発送準備中")
   end 
+  
   
     redirect_to admin_order_path(@order_history.order.id)
   end 

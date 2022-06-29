@@ -13,14 +13,12 @@ class Admin::OrdersController < ApplicationController
     
     @order = Order.find(params[:id])
     @order.update(order_params)
-    @order_histories = @order.order_histories
 
     if @order.status == "入金確認"
-      @order_histories.each do |order_history|
-        order_history.status = "製作待ち"
-        order_history.save
-      end
-      
+       @order.order_histories.each do |order_history|
+        order_history.update(status: "製作待ち")
+       end
+    elsif 
     end
     redirect_to admin_order_path(@order)
   end 
